@@ -13,12 +13,12 @@ The trick is a **contract**. You agree up front on what each function takes and 
 
 Both people:
 1. `git clone` the repo, create a venv, `pip install streamlit ollama`.
-2. Install Ollama, then `ollama pull gemma3`.
+2. Install Ollama, then `ollama pull gemma3:4b`. Check `ollama list` shows ID `a2af6cc3eb7f` on both laptops.
 3. Hello-world check (Person A leads, Person B copies): call `ollama.chat` with `format="json"` on one sentence and print the result. If this prints something, the setup works.
    - Docs: https://github.com/ollama/ollama-python
 4. Add a `requirements.txt` and a `.gitignore` (`venv/`, `__pycache__/`), then push.
 
-Optional: if you want Unsloth's quantized Gemma, use `ollama pull hf.co/unsloth/gemma-3-4b-it-GGUF:Q4_K_M`. Keep the model name in **one constant** so you can swap it later.
+Keep the model name (`"gemma3:4b"`) in **one constant** so you can swap it later. Only change it if both of you agree.
 
 ---
 
@@ -30,18 +30,19 @@ Create two files and push them before splitting up.
 
 | Function | Input | Output |
 |---|---|---|
-| `detect_subject(notes)` | str | `"biology"` / `"math"` / `"cs"` |
-| `rewrite_notes(notes, subject)` | str, str | `dict`, keys = section names for that subject |
+| `rewrite_notes(notes)` | str | `dict`, keys = the psychology template sections |
 | `make_diagram(notes_dict)` | dict | str (Mermaid code) |
 | `chat(history, notes, question)` | list of `{role, content}`, str, str | str (the reply) |
 
-**2. The exact section keys**, for example `"Key Terms"`, `"Quiz Yourself"`. Decide how the quiz is shaped (a list of strings, or a list of `{q, a}`?). **This is where teams get stuck, so decide it now.**
+No subject detection: the app is psychology only.
+
+**2. The exact section keys and shapes** are in the Template table in `design.md` (Key Terms, Theories & Models, Key Studies, Evaluation, Real-Life Examples, Quiz Yourself). **This is where teams get stuck, so don't change them without telling each other.**
 
 **3. Errors.** Decide that `gemma.py` raises one custom exception, for example `GemmaError(message)`, with a friendly message. The UI catches only that one.
 
-**4. Sample inputs.** Together write three short note files in `samples/` (`bio.txt`, `math.txt`, `cs.txt`). Deliberately make them messy.
+**4. Sample inputs.** Together write three short psychology note files in `samples/`, on different topics (e.g. `memory.txt`, `development.txt`, `social.txt`). Deliberately make them messy. Ask your friend for real notes if they're happy to share.
 
-**5. A fake output.** Person A writes one example dict per subject in `samples/expected_*.json`. Person B will use these as fake data.
+**5. A fake output.** Person A writes one example dict in `samples/expected.json`, following the template shapes. Person B will use it as fake data.
 
 Commit and push. Now you can split.
 
@@ -53,10 +54,9 @@ Never touch `app.py`. Test everything from a throwaway script, `try_llm.py`, tha
 
 | # | Task | How you know it works |
 |---|---|---|
-| A1 | `detect_subject`. Ask for one word, then clean it (lowercase, strip, check it's one of three, else fall back). | All 3 samples are classified correctly 5 times in a row. |
-| A2 | `templates.py`: per-subject section lists and prompt text. | Prompt is built from the section list, not copy-pasted three times. |
-| A3 | `rewrite_notes` with `format="json"`. Put the exact keys in the prompt. Validate keys after `json.loads`, and **retry once** on bad JSON or missing keys. | Every sample returns every key. Try empty input and gibberish. |
-| A4 | `make_diagram`. Ask for Mermaid only (no code fences, no prose). Strip fences in code. Pick flowchart vs cycle vs structure by subject. | Paste output into https://mermaid.live. It renders for all 3 samples. |
+| A2 | `templates.py`: the psychology section list (with shapes) and prompt text. | Prompt is built from the section list, and shows one small JSON example. |
+| A3 | `rewrite_notes` with `format="json"`. Put the exact keys in the prompt. Validate keys after `json.loads`, and **retry once** on bad JSON or missing keys. | Every sample returns every key with the right shape. Try empty input and gibberish. |
+| A4 | `make_diagram`. Ask for Mermaid only (no code fences, no prose). Strip fences in code. `flowchart` for models/processes, `mindmap` for topic overviews. | Paste output into https://mermaid.live. It renders for all 3 samples. |
 | A5 | `chat`. System prompt: "Answer only from these notes, otherwise say so." Add a quiz mode. | Ask something not in the notes. It should refuse. "Quiz me" asks one question at a time. |
 | A6 | Error handling. Catch connection and model-not-found errors, then raise `GemmaError`. | Stop Ollama and run it. You get a friendly message, not a traceback. |
 
@@ -65,19 +65,19 @@ Never touch `app.py`. Test everything from a throwaway script, `try_llm.py`, tha
 Tips:
 - A 4B model follows short prompts better than long ones. Show **one small example** of the JSON you want.
 - If Mermaid keeps breaking, ask for simpler diagrams (`flowchart TD`, short labels, no special characters).
-- Do A1, A3 and A4 first. A5 is last because it is the easiest to cut down.
+- Do A2, A3 and A4 first. A5 is last because it is the easiest to cut down.
 
 ---
 
 ## Person B: UI / system (`app.py`, rendering, polish)
 
-Never touch `gemma.py`. Instead create `fake_gemma.py` with the same function names that returns the data from `samples/expected_*.json` (add `time.sleep(2)` to feel the spinner). Use `import fake_gemma as gemma` in `app.py` for now.
+Never touch `gemma.py`. Instead create `fake_gemma.py` with the same function names that returns the data from `samples/expected.json` (add `time.sleep(2)` to feel the spinner). Use `import fake_gemma as gemma` in `app.py` for now.
 
 | # | Task | How you know it works |
 |---|---|---|
 | B1 | Skeleton: title, text area, "Generate" button, empty-input message. | Empty input shows a friendly prompt. |
-| B2 | Flow: spinner, then show the detected subject in a dropdown the user can **override**. | Changing the dropdown re-runs the rewrite. |
-| B3 | Tabs: Notes, Diagram, Study Buddy. Render each dict key as a section. | All sections show from fake data. |
+| B2 | Flow: spinner while generating, then store results in `st.session_state`. | Clicking around doesn't re-run the model. |
+| B3 | Tabs: Notes, Diagram, Study Buddy. Render each section by its shape (terms as term: definition, studies as small cards, quiz as expandable Q/A). Skip empty sections. | All sections show from fake data. |
 | B4 | Diagram tab: HTML component loading Mermaid from a CDN. If it fails, show the code as plain text. | Works with the fake diagram AND a deliberately broken one. |
 | B5 | Study Buddy: chat UI with `st.session_state`, "Quiz me" button. Docs: https://docs.streamlit.io (chat elements). | History survives reruns. |
 | B6 | Error handling: catch `GemmaError`, show `st.error`. Cache results so a rerun doesn't call the model again. | Fake a `GemmaError` and check the message. |
@@ -100,7 +100,7 @@ Tips:
 
 ## Step 3: Test and freeze
 
-- Run the test plan in `design.md` on all 3 samples. Then try bad input: empty, very long, non-English, wrong subject (history, say).
+- Run the test plan in `design.md` on all 3 samples. Then try bad input: empty, very long, non-English, non-psychology notes (history, say).
 - **6:30 PM PDT Saturday: freeze.** After this, bug fixes only.
 
 ---
@@ -110,7 +110,7 @@ Tips:
 | Time | Both | Person A | Person B |
 |---|---|---|---|
 | Now to 1:30 | Steps 0 and 1 | | |
-| 1:30 to 3:30 | | A1 to A3 | B1 to B4 |
+| 1:30 to 3:30 | | A2, A3 | B1 to B4 |
 | 3:30 to 5:00 | | A4, A5 | B5, B6 |
 | 5:00 to 5:30 | Step 2: integrate | | |
 | 5:30 to 6:30 | Step 3: test samples and fix | A6 | B7 |
@@ -125,19 +125,18 @@ Split the Sunday work too: one person records the demo and screenshots, the othe
 ## Git rules so you don't collide
 
 - A owns `gemma.py`, `templates.py`, `try_llm.py`. B owns `app.py`, `fake_gemma.py`. `samples/` and the contract are shared: change them only after messaging each other.
-- `git pull` before you start, commit small, push often. Short messages: "Add subject detection".
+- `git pull` before you start, commit small, push often. Short messages: "Add psychology template".
 - If you must touch the other person's file, ask first or use a branch.
 
 ## If you fall behind (cut in this order)
 
 1. "Quiz me" mode (keep plain Q&A).
-2. Subject dropdown override.
-3. Diagram variety (use one flowchart style for everything).
-4. Polish (B7).
+2. Diagram variety (use `flowchart` for everything, drop `mindmap`).
+3. Polish (B7).
 
-Never cut: detect, rewrite, error messages, and the three-sample test.
+Never cut: rewrite, error messages, and the three-sample test.
 
 ## Decide today
 
-- Who is the friend you're building for? It affects the demo and the post.
+- Friend: a psychology student. Note their course and what their exams ask for; it shapes the demo and the post.
 - Who publishes the DEV post, and both DEV usernames.
