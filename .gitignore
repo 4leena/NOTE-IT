@@ -1,0 +1,7 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# personal notes, not shared
+my-llm-plan.md
