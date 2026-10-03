@@ -36,11 +36,11 @@ Create two files and push them before splitting up.
 
 No subject detection: the app is psychology only.
 
-**2. The exact section keys and shapes** are in the Template table in `design.md` (Key Terms, Theories & Models, Key Studies, Evaluation, Real-Life Examples, Quiz Yourself). **This is where teams get stuck, so don't change them without telling each other.**
+**2. The exact section keys and shapes** are in `docs/contract.md` (Key Terms, Theories & Researchers, Key Studies, Evaluation, Real-World Examples, Quiz Yourself). **This is where teams get stuck, so don't change them without telling each other.**
 
 **3. Errors.** Decide that `gemma.py` raises one custom exception, for example `GemmaError(message)`, with a friendly message. The UI catches only that one.
 
-**4. Sample inputs.** Together write three short psychology note files in `samples/`, on different topics (e.g. `memory.txt`, `development.txt`, `social.txt`). Deliberately make them messy. Ask your friend for real notes if they're happy to share.
+**4. Sample inputs.** Together write three short psychology note files in `samples/`, on different topics (`memory.txt`, `conditioning.txt`, `social.txt`). Deliberately make them messy. Ask your friend for real notes if they're happy to share.
 
 **5. A fake output.** Person A writes one example dict in `samples/expected.json`, following the template shapes. Person B will use it as fake data.
 

@@ -11,7 +11,7 @@ Built for the DEV Hacktoberfest Weekend Challenge ("Build for a Friend"): our fr
 3. Gemma generates a Mermaid diagram of the main idea.
 4. Ask the Study Buddy questions about your notes, or say "quiz me".
 
-Template sections: Key Terms, Theories & Models, Key Studies, Evaluation, Real-Life Examples, Quiz Yourself.
+Template sections: Key Terms, Theories & Researchers, Key Studies, Evaluation, Real-World Examples, Quiz Yourself.
 
 ## Setup
 

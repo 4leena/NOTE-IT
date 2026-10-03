@@ -34,14 +34,16 @@ Model: `gemma3:4b`, kept in one constant `MODEL`.
 
 ## Template (JSON keys)
 
-| Section | Shape | Example item |
-|---|---|---|
-| Key Terms | list of `{term, definition}` | `{"term": "Schema", "definition": "A mental framework for organising knowledge"}` |
-| Theories & Models | list of `{name, summary}` | `{"name": "Multi-Store Model (Atkinson & Shiffrin)", "summary": "Memory flows from sensory to short-term to long-term stores"}` |
-| Key Studies | list of `{study, method, findings}` | `{"study": "Loftus & Palmer (1974)", "method": "Lab experiment, car crash videos", "findings": "Leading questions changed speed estimates"}` |
-| Evaluation | list of strings | `"Lab studies lack ecological validity"` |
-| Real-Life Examples | list of strings | `"Forgetting a phone number after a distraction"` |
-| Quiz Yourself | list of `{q, a}` | `{"q": "What are the three memory stores?", "a": "Sensory, short-term, long-term"}` |
+Exact keys, shapes and examples live in **[contract.md](contract.md)**. Summary:
+
+| Section | Shape |
+|---|---|
+| Key Terms | list of `{term, definition}` |
+| Theories & Researchers | list of `{name, summary}` |
+| Key Studies | list of `{study, method, findings}` |
+| Evaluation | list of strings |
+| Real-World Examples | list of strings |
+| Quiz Yourself | list of `{q, a}` |
 
 Gemma is called with `format="json"` and told the exact keys to return. If the notes have nothing for a section, it returns an empty list. The UI renders each key as a section and skips empty ones.
 
@@ -68,7 +70,7 @@ Private notes stay on the device, it's free, works offline, and the model can be
 - Time: freeze features Sat 6:30 PM PDT.
 
 ## Test plan
-Run the three files in `samples/` (three psychology topics, e.g. `memory.txt`, `development.txt`, `social.txt`) end to end: all sections render, diagram renders, Study Buddy answers and quizzes. Then try bad input: empty, very long, and a non-psychology topic.
+Run the three files in `samples/` (`memory.txt`, `conditioning.txt`, `social.txt`) end to end: all sections render, diagram renders, Study Buddy answers and quizzes. Then try bad input: empty, very long, and a non-psychology topic.
 
 ## Open items
 - Our friend's name/course and their reaction (for the DEV post).
