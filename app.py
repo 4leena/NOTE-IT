@@ -1,3 +1,5 @@
+import json
+import re
 from datetime import date
 
 import streamlit as st
@@ -7,6 +9,30 @@ import fake_gemma as gemma
 st.set_page_config(page_title="NOTE-IT", layout="wide")
 
 MODES = {"Tutor": "tutor", "Peer": "peer", "Examiner": "examiner"}
+
+LAYOUTS = {"Top to bottom": "TD", "Left to right": "LR"}
+
+MERMAID_HTML = """
+<div id="diagram"></div>
+<pre id="fallback" style="display:none; white-space:pre-wrap"></pre>
+<script src="/app/static/mermaid.min.js"></script>
+<script>
+const code = DIAGRAM_CODE;
+function showFallback() {
+  const box = document.getElementById("fallback");
+  box.textContent = "Couldn't draw this diagram. Here is the code instead:\\n\\n" + code;
+  box.style.display = "block";
+}
+if (typeof mermaid === "undefined") {
+  showFallback();
+} else {
+  mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+  mermaid.render("graph", code)
+    .then(({ svg }) => { document.getElementById("diagram").innerHTML = svg; })
+    .catch(showFallback);
+}
+</script>
+"""
 
 
 def show_notes(result):
@@ -48,6 +74,18 @@ def show_notes(result):
         for item in quiz:
             with st.expander(item["q"]):
                 st.write(item["a"])
+
+
+def set_direction(code, direction):
+    return re.sub(r"^(flowchart|graph)\s+\w+", rf"\1 {direction}", code, count=1)
+
+
+def show_diagram(code):
+    safe = json.dumps(code).replace("</", "<\\/")
+    st.iframe(MERMAID_HTML.replace("DIAGRAM_CODE", safe), height=450)
+    with st.expander("Edit diagram"):
+        st.caption("Change the text and press Ctrl+Enter (Cmd+Enter on Mac) to redraw.")
+        st.text_area("Mermaid code", key="diagram", height=200, label_visibility="collapsed")
 
 
 def show_buddy():
@@ -110,7 +148,13 @@ with notes_col:
         with notes_tab:
             show_notes(result)
         with diagram_tab:
-            st.code(st.session_state["diagram"])
+            if st.button("Regenerate diagram"):
+                with st.spinner("Redrawing…"):
+                    st.session_state["diagram"] = gemma.make_diagram(result)
+            if st.session_state["diagram"].startswith(("flowchart", "graph")):
+                layout = st.radio("Layout", list(LAYOUTS), horizontal=True)
+                st.session_state["diagram"] = set_direction(st.session_state["diagram"], LAYOUTS[layout])
+            show_diagram(st.session_state["diagram"])
     else:
         st.caption("Paste or upload your notes in the sidebar, then click Generate.")
 
