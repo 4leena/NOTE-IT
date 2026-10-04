@@ -14,7 +14,7 @@ Three functions. No subject detection (psychology only).
 
 ### `rewrite_notes(notes: str) -> dict`
 - `notes`: the raw text the user pasted.
-- Returns the template dict below, with **all 6 keys always present**. A section with nothing in the notes is `[]`.
+- Returns the template dict below: a `"Topic"` string plus **all 6 section keys, always present**. A section with nothing in the notes is `[]`.
 
 ### `make_diagram(notes_dict: dict) -> str`
 - `notes_dict`: the dict returned by `rewrite_notes`.
@@ -46,6 +46,7 @@ Copy key names exactly, including capitals, spaces and `&`.
 
 | Key | Shape |
 |---|---|
+| `"Topic"` | str, a short title for the lecture (the UI shows it as the page title) |
 | `"Key Terms"` | list of `{"term": str, "definition": str}` |
 | `"Theories & Researchers"` | list of `{"name": str, "summary": str}` |
 | `"Key Studies"` | list of `{"study": str, "method": str, "findings": str}` |
@@ -57,6 +58,7 @@ Copy key names exactly, including capitals, spaces and `&`.
 
 ```json
 {
+  "Topic": "Classical Conditioning",
   "Key Terms": [
     {"term": "Classical conditioning", "definition": "Learning by associating a neutral stimulus with one that already causes a response."}
   ],

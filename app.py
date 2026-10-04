@@ -1,10 +1,13 @@
 import json
 import re
+import sys
 from datetime import date
+from pathlib import Path
 
 import streamlit as st
 
-import fake_gemma as gemma
+sys.path.insert(0, str(Path(__file__).parent / "src" / "backend"))
+import gemma  # real Gemma via Ollama. For the offline demo data: import fake_gemma as gemma
 
 st.set_page_config(page_title="NOTE-IT", layout="wide")
 
