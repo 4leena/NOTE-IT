@@ -1,0 +1,38 @@
+{
+  "Key Terms": [
+    {"term": "Multi-store model", "definition": "Memory is made of three stores (sensory, short-term, long-term), and information moves between them in a fixed order."},
+    {"term": "Rehearsal", "definition": "Repeating information to keep it in short-term memory and move it into long-term memory."},
+    {"term": "Chunking", "definition": "Grouping items into larger meaningful units, such as a phone number in three parts, so more fits in short-term memory."},
+    {"term": "Episodic memory", "definition": "Long-term memory for personal events."},
+    {"term": "Semantic memory", "definition": "Long-term memory for facts and general knowledge."},
+    {"term": "Procedural memory", "definition": "Long-term memory for how to do things, such as riding a bike."},
+    {"term": "Schema", "definition": "A mental framework built from past experience that we use to rebuild memories, which can distort them."},
+    {"term": "Leading question", "definition": "A question worded so that it pushes the person toward a particular answer."}
+  ],
+  "Theories & Researchers": [
+    {"name": "Atkinson & Shiffrin (1968)", "summary": "Multi-store model: information passes from sensory memory to short-term memory if attended to, and into long-term memory through rehearsal."},
+    {"name": "Miller (1956)", "summary": "Short-term memory holds about 7 plus or minus 2 items, and chunking helps stretch this."},
+    {"name": "Bartlett", "summary": "Reconstructive memory: we rebuild memories using schemas instead of replaying a recording, so they get distorted."}
+  ],
+  "Key Studies": [
+    {"study": "Peterson & Peterson (1959)", "method": "Participants saw trigrams such as XPJ, then counted backwards in threes so they could not rehearse.", "findings": "After 18 seconds only about 10% were recalled, suggesting short-term memory decays quickly without rehearsal."},
+    {"study": "Loftus & Palmer (1974)", "method": "45 students watched car crash clips, then estimated speed with the verb changed in the question (smashed, collided, bumped, hit, contacted).", "findings": "Smashed gave 40.5 mph and contacted gave 31.8 mph. A week later 32% of the smashed group reported broken glass, against 14% of the hit group."}
+  ],
+  "Evaluation": [
+    "Multi-store model is too simple: patient KF had damaged short-term memory but could still form long-term memories, so short-term memory may have more than one part.",
+    "Rehearsal is not the only way information reaches long-term memory.",
+    "Peterson & Peterson used meaningless trigrams, so the study has low ecological validity.",
+    "Loftus & Palmer was a lab study with video clips, so participants were less stressed than real witnesses. It was well controlled and easy to replicate."
+  ],
+  "Real-World Examples": [
+    "Police should ask a witness 'was there a weapon?' instead of 'did you see the knife?' to avoid leading questions.",
+    "Remembering exam content better when you sit in the same room where you learned it.",
+    "Testing yourself works better for revision than rereading."
+  ],
+  "Quiz Yourself": [
+    {"q": "What are the three stores in the multi-store model?", "a": "Sensory memory, short-term memory and long-term memory."},
+    {"q": "What did Peterson & Peterson stop their participants from doing by making them count backwards?", "a": "Rehearsing the trigram."},
+    {"q": "In Loftus & Palmer, which verb led to the highest speed estimates?", "a": "Smashed (40.5 mph on average)."},
+    {"q": "Give one criticism of the multi-store model.", "a": "It is too simple: short-term memory is not a single store, as patient KF showed, and rehearsal is not the only route to long-term memory."}
+  ]
+}

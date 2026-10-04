@@ -1,0 +1,18 @@
+memory - lecture wk 4
+
+atkinson & shiffrin 1968 multi-store model. 3 stores: sensory memory -> short term memory (STM) -> long term (LTM). info only moves on if u pay attention to it. rehearsal (repeating it) moves STM -> LTM. retrieval brings it back out
+sensory = very short, under a sec for visual?? (iconic) echoic is a bit longer
+STM approx 7 +- 2 items (miller 1956) , lasts about 18-30 secs unless rehearsed. "chunking" helps - e.g. phone number as 3 chunks not 10 digits
+LTM = basically unlimited, lasts yrs. episodic (events), semantic (facts) , procedural (how to ride a bike)
+
+peterson & peterson 1959 - gave ppl trigrams (like XPJ) then made them count backwards in 3s so they cant rehearse. after 18 sec only like 10% recalled. -> STM decays fast w/o rehearsal. BUT used meaningless trigrams so doesnt reflect real life memory, low ecological validity
+
+crit of multi-store: too simple, says STM is one store but KF patient (shallow STM damage) could still form LTMs?? so maybe more than 1 type of STM. also rehearsal isnt the only way stuff gets in LTM
+
+!! reconstructive memory - bartlett's war of the ghosts. memory isnt like a recording, we rebuild it using schemas so it gets distorted
+
+loftus & palmer 1974 -- eyewitness testimony. 45 students watched clips of car crashes then asked "how fast were the cars going when they ___ each other". verb changed: smashed / collided / bumped / hit / contacted. smashed -> est. 40.5 mph, contacted -> 31.8 mph. week later asked "did u see any broken glass" (there was none) - 32% of smashed grp said yes vs 14% hit grp. leading questions change memory not just the answer ur giving
+crit: lab study, students watching video isnt same as real crash, less emotional/stress so low ecological validity. but strong control, can replicate
+
+real life: police interview, a witness being asked "did u see the knife" instead of "was there a weapon". also exam - u remember better when ur in same room (context cue)
+revision tip -> dont just reread, test urself
