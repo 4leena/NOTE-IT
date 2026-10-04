@@ -5,3 +5,5 @@ __pycache__/
 
 # personal notes, not shared
 my-llm-plan.md
+
+.DS_Store

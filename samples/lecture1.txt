@@ -1,0 +1,39 @@
+PSYC learning - lec 5, operant conditioning
+(continuing from classical last wk)
+
+diff from classical: classical = involuntary responses (drool, fear)
+operant = VOLUNTARY behaviour + its consequences
+
+thorndike first - cats in puzzle boxes, got faster at escaping over trials
+"law of effect" -> behaviours w/ good outcome get stamped in, bad outcome stamped out
+
+skinner - skinner box (operant chamber). rat presses lever -> food pellet
+pigeons too, pecking a key
+
+the 4 combos (prof said this WILL be on exam!!)
+pos = ADD something, neg = REMOVE something (not good/bad!!)
+reinforcement = behaviour goes UP, punishment = behaviour goes DOWN
+- pos reinforcement: add good thing -> more behaviour (treat for dog sitting)
+- neg reinforcement: take away bad thing -> more behaviour (seatbelt beeping stops when u buckle)
+- pos punishment: add bad thing -> less behaviour (speeding ticket)
+- neg punishment: take away good thing -> less behaviour (phone taken away)
+ppl confuse neg reinforcment w/ punishment ALL the time
+
+schedules of reinforcemnt
+continuous = every time, fast learning but fast extinction
+partial:
+FR fixed ratio - every nth response (coffee card, 10th free)
+VR variable ratio - random # of responses -> slot machines!! most resistant to extinction
+FI fixed interval - first response after set time (paycheque). scalloped pattern
+VI variable interval - random time (checking email/texts)
+
+shaping = reinforce successive approximations. how u teach a rat to do complex stuff
+or teaching a kid to tie shoes step by step
+
+primary reinforcer = food, water (biological)
+secondary = money, grades, praise (learned value)
+
+real life ex: my phone apps w/ streaks lol, variable rewards keep u checking
+token economies in classrooms
+
+next wk: observational learning, bandura bobo doll
