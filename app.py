@@ -2,19 +2,20 @@ import streamlit as st
 
 import fake_gemma as gemma
 
-st.set_page_config(page_title="NOTE-IT", layout="wide")
+st.set_page_config(page_title="NOTE-IT", page_icon="🧠", layout="centered")
 
-st.title("NOTE-IT")
-st.caption("Messy psychology notes in, study-ready notes out. Runs locally on Gemma.")
+with st.sidebar:
+    st.title("NOTE-IT")
+    st.caption("Messy psychology notes in, study-ready notes out. Runs locally on Gemma.")
 
-left, right = st.columns([1, 2])
+    notes = st.text_area("Paste your notes", height=250)
+    uploaded = st.file_uploader("…or upload a file", type=["txt", "md"])
+    if uploaded is not None:
+        notes = uploaded.read().decode("utf-8")
 
-with left:
-    notes = st.text_area("Paste your notes:", height=300)
-    generate = st.button("Generate", type="primary")
+    generate = st.button("Generate", type="primary", width="stretch")
 
     if generate and notes.strip() == "":
-        st.warning("Paste some notes first.")
+        st.warning("Paste or upload some notes first.")
 
-with right:
-    st.info("← Paste notes and click Generate to get started.")
+st.caption("Paste or upload your notes in the sidebar, then click Generate.")
