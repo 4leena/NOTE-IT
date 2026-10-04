@@ -38,7 +38,7 @@ BUDDY_CSS = """
 .mascot {
   width: 96px;
   display: block;
-  filter: drop-shadow(0 6px 10px rgba(59, 47, 37, 0.18));
+  filter: drop-shadow(0 6px 10px rgba(43, 36, 34, 0.18));
 }
 .st-key-mascot_button {
   position: absolute !important;
@@ -58,11 +58,11 @@ BUDDY_CSS = """
   width: 220px;
   margin: 0 8px 70px 0;
   background: #FFFFFF;
-  border: 1px solid #EAD8BF;
+  border: 1px solid #D9CDBE;
   border-radius: 18px;
   padding: 12px 16px;
-  box-shadow: 0 10px 24px rgba(59, 47, 37, 0.16);
-  color: #3B2F25;
+  box-shadow: 0 10px 24px rgba(43, 36, 34, 0.16);
+  color: #2B2422;
   font-size: 0.92rem;
   animation: hello-pop 0.5s ease-out 0.4s both;
 }
@@ -74,15 +74,15 @@ BUDDY_CSS = """
   width: 14px;
   height: 14px;
   background: #FFFFFF;
-  border-right: 1px solid #EAD8BF;
-  border-bottom: 1px solid #EAD8BF;
+  border-right: 1px solid #D9CDBE;
+  border-bottom: 1px solid #D9CDBE;
   transform: rotate(-45deg);
 }
 .buddy-hello b {
   display: block;
-  font-family: Caveat, cursive;
+  font-family: 'Nanum Pen Script', cursive;
   font-size: 1.6rem;
-  color: #8C5E2A;
+  color: #8E2C2C;
 }
 @keyframes hello-pop {
   from { opacity: 0; transform: translateY(12px) scale(0.96); }
@@ -92,19 +92,19 @@ BUDDY_CSS = """
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #FFFCF7;
+  color: #F4EDE1;
   font-weight: 600;
   font-size: 1.05rem;
 }
 .buddy-title img {
   width: 30px;
   height: 30px;
-  background: #F3E2CB;
+  background: #FFFDF8;
   border-radius: 50%;
   padding: 3px;
 }
 .st-key-buddy_close button {
-  color: #FFFCF7 !important;
+  color: #F4EDE1 !important;
 }
 .st-key-buddy_close button p {
   position: absolute;
@@ -124,7 +124,7 @@ BUDDY_CSS = """
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: #F3E2CB;
+  background: #FFFDF8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,10 +135,10 @@ BUDDY_CSS = """
 .bot-bubble {
   position: relative;
   background: #FFFFFF;
-  border: 1px solid #EAD8BF;
+  border: 1px solid #D9CDBE;
   border-radius: 16px;
   padding: 12px 14px;
-  color: #3B2F25;
+  color: #2B2422;
   font-size: 0.92rem;
 }
 .bot-bubble b {
@@ -149,17 +149,17 @@ BUDDY_CSS = """
   position: fixed;
   right: 12px;
   bottom: 172px;
-  width: 356px !important;
+  width: 392px !important;
   z-index: 999996;
-  box-shadow: 0 14px 36px rgba(59, 47, 37, 0.20);
-  background: #FBF5EC;
-  border: 1px solid #EAD8BF;
+  box-shadow: 0 14px 36px rgba(43, 36, 34, 0.20);
+  background: #EFE6D6;
+  border: 1px solid #D9CDBE;
   border-radius: 14px;
   padding-bottom: 12px;
   overflow: hidden;
 }
 .st-key-buddy_header {
-  background: #3B2F25;
+  background: #2B2422;
   padding: 8px 12px 8px 16px;
 }
 .st-key-buddy_body {
@@ -168,7 +168,7 @@ BUDDY_CSS = """
 .st-key-buddy [class*="st-key-mode_"] button {
   border-radius: 999px;
   background: #FFFFFF;
-  border: 1px solid #EAD8BF;
+  border: 1px solid #D9CDBE;
   padding: 4px 6px;
   gap: 4px;
   white-space: nowrap;
@@ -178,8 +178,8 @@ BUDDY_CSS = """
 }
 .st-key-buddy [data-testid="stChatMessageAvatarUser"],
 .st-key-buddy [data-testid="stChatMessageAvatarAssistant"] {
-  background: #F3E2CB !important;
-  color: #8C5E2A !important;
+  background: #FFFDF8 !important;
+  color: #8E2C2C !important;
 }
 .st-key-buddy [data-testid="stChatMessageContent"] {
   flex: 0 1 auto;
@@ -190,12 +190,12 @@ BUDDY_CSS = """
   flex-direction: row-reverse;
 }
 .st-key-buddy [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
-  background: #E7BE8A;
+  background: #F2D46B;
   border-radius: 16px 16px 4px 16px;
 }
 .st-key-buddy [data-testid="stChatMessage"]:not(:has([data-testid="stChatMessageAvatarUser"])) [data-testid="stChatMessageContent"] {
   background: #FFFFFF;
-  border: 1px solid #EAD8BF;
+  border: 1px solid #D9CDBE;
   border-radius: 16px 16px 16px 4px;
 }
 .st-key-buddy [data-testid="stChatInput"],
@@ -216,62 +216,231 @@ CHEERS = [
     "Take a breath. You're learning, not racing.",
 ]
 
-FRIEND_NAME = ""
-
-START_SCREEN = """
-<div style="text-align:center; padding:48px 16px 24px; color:#3B2F25;">
-  <div class="hand" style="font-size:3rem; font-weight:700; color:#8C5E2A;">What are we studying today?</div>
-  <div style="opacity:0.75; margin-top:6px;">Turn messy lecture notes into a page you actually want to study from.</div>
-  <div style="display:flex; gap:16px; justify-content:center; margin-top:36px; flex-wrap:wrap;">
-    <div class="step"><div class="hand num">1</div>Paste or upload your notes in the sidebar</div>
-    <div class="step"><div class="hand num">2</div>Press Generate and give it a moment</div>
-    <div class="step"><div class="hand num">3</div>Study, highlight, and chat with your buddy</div>
-  </div>
-</div>
-"""
+FRIEND_NAME = "Surraya"
 
 PAGE_CSS = """
 <style>
+:root {
+  --step-down: 0.786rem;
+  --step-0: 1rem;
+  --step-half: 1.272rem;
+  --step-1: 1.618rem;
+  --step-2: 2.618rem;
+  --step-3: 4.236rem;
+}
 .hand {
-  font-family: Caveat, cursive;
+  font-family: 'Nanum Pen Script', cursive;
 }
-.step {
-  width: 170px;
-  background: #FBF5EC;
-  border: 1px solid #EAD8BF;
-  border-radius: 12px;
-  padding: 16px;
-  font-size: 0.95rem;
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {
+  font-size: var(--step-down);
 }
-.step .num {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #8C5E2A;
-  line-height: 1;
-  margin-bottom: 6px;
+[data-testid="stMainBlockContainer"] h1 {
+  color: #8E2C2C;
 }
+[data-testid="stSidebar"] {
+  border-right: 1.5px dashed #D9CDBE;
+}
+button[data-testid="stBaseButton-primary"] {
+  background: #2B2422 !important;
+  border-color: #2B2422 !important;
+  color: #FFFFFF !important;
+  border-radius: 999px;
+}
+button[data-testid="stBaseButton-primary"]:hover {
+  background: #000000 !important;
+}
+button[data-testid="stBaseButton-secondary"] {
+  border-radius: 999px;
+}
+.st-key-calendar_button button {
+  background: #FFFDF8;
+  border: 1.5px solid #8E2C2C;
+  color: #8E2C2C;
+  font-weight: 600;
+}
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 44px;
+  border: 1.5px dashed #D9CDBE;
+  border-radius: 22px;
+  background-color: #F4EDE1;
+  background-image: linear-gradient(#E6DCCB 1px, transparent 1px), linear-gradient(90deg, #E6DCCB 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.hero-text {
+  flex: 1 1 auto;
+}
+.hero-title {
+  font-family: Parisienne, cursive;
+  font-size: var(--step-2);
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: #8E2C2C;
+  -webkit-text-stroke: 6px #F2D46B;
+  letter-spacing: 0.02em;
+  paint-order: stroke fill;
+}
+.hero-text p {
+  font-size: var(--step-0);
+  max-width: 34rem;
+  margin: 18px 0 22px;
+}
+.hero-cta {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1.5px solid #8E2C2C;
+  border-radius: 999px;
+  background: #FFFDF8;
+  color: #8E2C2C;
+  font-weight: 600;
+  font-size: var(--step-down);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero-art {
+  position: relative;
+  flex: 0 0 200px;
+  height: 230px;
+}
+.hero-art .robot {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 160px;
+}
+.hero-art .sun {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70px;
+}
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr 1.618fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.pill-box, .stat-box-wrap {
+  border: 1.5px dashed #D9CDBE;
+  border-radius: 22px;
+  padding: 22px;
+}
+.pill-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 12px 10px;
+}
+.pill {
+  padding: 8px 18px;
+  border: 1.5px solid #2B2422;
+  border-radius: 999px;
+  background: #FFFFFF;
+  font-size: var(--step-0);
+}
+.pill:nth-child(odd) { transform: rotate(-8deg); }
+.pill:nth-child(even) { transform: rotate(6deg); }
+.pill-empty {
+  font-size: var(--step-down);
+  color: #6B5E57;
+}
+.stat-box-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.stat {
+  border: 1.5px solid #2B2422;
+  border-radius: 14px;
+  background: #FFFDF8;
+  padding: 16px 8px;
+  text-align: center;
+}
+.stat b {
+  display: block;
+  font-family: Parisienne, cursive;
+  font-size: var(--step-1);
+  font-weight: 400;
+  line-height: 1.2;
+}
+.stat span {
+  font-size: var(--step-down);
+}
+
+/* journal look */
+[data-testid="stAppViewContainer"] { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.2 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+[data-testid="stSidebar"] { border-right: 1.5px solid #2B2422; }
+.st-key-app_header { border-bottom: 1.5px solid #2B2422 !important; background: #EFE6D6 !important; }
+.st-key-app_footer { border-top: 1.5px solid #2B2422 !important; background: #EFE6D6 !important; }
+.brand .wordmark { font-family: Parisienne, cursive; font-size: var(--step-1); color: #8E2C2C; letter-spacing: 0; }
+.brand .greet, .streak { font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
+.cheer { font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
+[data-testid="stMainBlockContainer"] h1 { color: #8E2C2C; font-size: var(--step-2); }
+button[data-testid="stBaseButton-primary"] { background: #8E2C2C !important; border: 1.5px solid #2B2422 !important; border-radius: 4px;
+  box-shadow: 3px 3px 0 #2B2422; letter-spacing: 0.06em; }
+button[data-testid="stBaseButton-primary"]:hover { background: #6E1F1F !important; }
+button[data-testid="stBaseButton-secondary"] { border-radius: 4px; border: 1.5px solid #2B2422; box-shadow: 2px 2px 0 #2B2422; }
+.st-key-calendar_button button { background: #FFFDF8; border: 1.5px solid #2B2422; color: #2B2422; }
+.st-key-calendar_button button:hover { background: #F2D46B; }
+.st-key-buddy { border: 1.5px solid #2B2422 !important; border-radius: 6px !important; box-shadow: 6px 6px 0 #2B2422 !important; }
+.st-key-buddy [class*="st-key-mode_"] button { border-radius: 4px; border: 1.5px solid #2B2422; }
+.buddy-hello { border: 1.5px solid #2B2422; border-radius: 6px; box-shadow: 4px 4px 0 #2B2422; }
+.buddy-hello::after { border-right: 1.5px solid #2B2422; border-bottom: 1.5px solid #2B2422; }
+.buddy-hello b { font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
+.buddy-hello { animation: hello-pop 0.5s ease-out 0.4s both, hello-hide 0.6s ease-in 8s forwards; }
+@keyframes hello-hide { to { opacity: 0; visibility: hidden; transform: translateY(8px); } }
+.st-key-buddy [class*="st-key-mode_"] button p { font-size: var(--step-down); }
+.st-key-buddy [class*="st-key-mode_"] button { padding: 4px 2px !important; }
+.journal-hero { position: relative; min-height: 470px; padding: 40px 16px 24px; text-align: center; }
+.kicker { font-size: var(--step-down); letter-spacing: 0.3em; text-transform: uppercase; color: #6B5E57; }
+.journal-title { font-family: Parisienne, cursive; font-size: var(--step-3); line-height: 1.05; color: #8E2C2C; margin: 18px 0 4px; }
+.flourish { width: 220px; height: 24px; }
+.journal-sub { font-size: var(--step-0); max-width: 30rem; margin: 10px auto 18px; }
+.chevron { width: 22px; height: 22px; color: #8E2C2C; }
+.scrap { position: absolute; background: #FFFDF8; border: 1.5px solid #2B2422; box-shadow: 4px 4px 0 #2B2422; }
+.polaroid { left: 0; top: 30px; width: 150px; padding: 10px 10px 34px; transform: rotate(-7deg); }
+.polaroid img { width: 100%; background: #EFE6D6; display: block; }
+.polaroid span { position: absolute; left: 0; right: 0; bottom: 6px; font-family: 'Nanum Pen Script', cursive; font-size: var(--step-half); }
+.sticky-scrap { right: 10px; top: 20px; width: 150px; padding: 16px; background: #F6E3A1; transform: rotate(5deg);
+  font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); line-height: 1.05; text-align: left; }
+.card-scrap { right: 40px; bottom: 10px; width: 190px; padding: 14px; transform: rotate(-3deg); text-align: left; font-size: var(--step-down); }
+.card-scrap b { display: block; color: #8E2C2C; letter-spacing: 0.2em; margin-bottom: 6px; }
+.journal-row { display: grid; grid-template-columns: 1fr 1.618fr; gap: 20px; margin-top: 20px; }
+.topics, .stats { border-top: 1.5px solid #2B2422; padding-top: 16px; }
+.row-label { font-size: var(--step-down); letter-spacing: 0.3em; text-transform: uppercase; color: #8E2C2C; margin-bottom: 14px; }
+.oval { display: inline-block; margin: 6px 8px; padding: 6px 20px; border: 1.5px solid #2B2422; border-radius: 50%;
+  font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
+.oval:nth-child(odd) { transform: rotate(-5deg); }
+.oval:nth-child(even) { transform: rotate(4deg); }
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.stat { border: 1.5px solid #2B2422; border-radius: 4px; background: #FFFDF8; box-shadow: 4px 4px 0 #2B2422; padding: 14px 8px; text-align: center; }
+.stat b { display: block; font-family: Parisienne, cursive; font-size: var(--step-2); font-weight: 400; color: #8E2C2C; line-height: 1.1; }
+.stat span { font-size: var(--step-down); letter-spacing: 0.12em; text-transform: uppercase; }
 .brand {
   display: flex;
   align-items: baseline;
   gap: 16px;
 }
 .brand .wordmark {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-family: Parisienne, cursive;
+  font-size: var(--step-1);
+  color: #8E2C2C;
+  letter-spacing: 0.02em;
 }
 .brand .greet {
-  font-size: 1.6rem;
-  color: #8C5E2A;
+  font-size: var(--step-1);
+  color: #8E2C2C;
 }
 .streak {
   text-align: right;
-  font-size: 1.5rem;
-  color: #3B2F25;
+  font-size: var(--step-1);
+  color: #2B2422;
 }
 .cheer {
-  font-size: 1.5rem;
-  color: #3B2F25;
+  font-size: var(--step-half);
+  color: #2B2422;
 }
 .st-key-app_header {
   position: fixed;
@@ -280,8 +449,8 @@ PAGE_CSS = """
   right: 0;
   height: 64px;
   z-index: 999995;
-  background: #F3E2CB;
-  border-bottom: 1px solid #EAD8BF;
+  background: #EFE6D6;
+  border-bottom: 1.5px dashed #D9CDBE;
   padding: 0 32px;
   justify-content: center;
 }
@@ -307,15 +476,15 @@ PAGE_CSS = """
   right: 0;
   height: 48px;
   z-index: 999995;
-  background: #F3E2CB;
-  border-top: 1px solid #EAD8BF;
+  background: #EFE6D6;
+  border-top: 1.5px dashed #D9CDBE;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 .st-key-app_footer p {
   font-size: 0.95rem;
-  color: #3B2F25;
+  color: #2B2422;
   margin: 0 !important;
   text-align: center;
 }
@@ -337,7 +506,7 @@ PAGE_CSS = """
 SAVE_DIR = Path("saved_notes")
 SAVED_KEYS = ["notes", "result", "diagram", "history"]
 DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-HEAT_COLORS = ["#EFE8DE", "#F3E2CB", "#E7BE8A", "#C9955A", "#8C5E2A"]
+HEAT_COLORS = ["#E8DFD0", "#FFFDF8", "#F2D46B", "#C4706A", "#8E2C2C"]
 WEEKS_SHOWN = 26
 CELL = 24
 
@@ -370,16 +539,23 @@ if (typeof mermaid === "undefined") {
     startOnLoad: false,
     theme: "base",
     themeVariables: {
-      primaryColor: "#F8EFE3",
-      primaryBorderColor: "#8C5E2A",
-      primaryTextColor: "#3B2F25",
-      lineColor: "#8C5E2A",
+      primaryColor: "#EFE6D6",
+      primaryBorderColor: "#8E2C2C",
+      primaryTextColor: "#2B2422",
+      lineColor: "#8E2C2C",
       fontFamily: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
     }
   });
-  mermaid.render("graph", code)
-    .then(({ svg }) => { document.getElementById("diagram").innerHTML = svg; })
-    .catch(showFallback);
+  let drawn = false;
+  function draw() {
+    if (drawn || document.body.clientWidth === 0) return;
+    drawn = true;
+    mermaid.render("graph", code)
+      .then(({ svg }) => { document.getElementById("diagram").innerHTML = svg; })
+      .catch(showFallback);
+  }
+  new ResizeObserver(draw).observe(document.body);
+  draw();
 }
 </script>
 """
@@ -387,75 +563,77 @@ if (typeof mermaid === "undefined") {
 
 NOTEBOOK_HTML = """
 <style>
-@font-face { font-family: Caveat; src: url(/app/static/fonts/caveat-400.woff2); font-weight: 400; }
-@font-face { font-family: Caveat; src: url(/app/static/fonts/caveat-700.woff2); font-weight: 700; }
+@font-face { font-family: 'Courier Prime'; src: url(/app/static/fonts/courier-400.woff2); font-weight: 400; }
+@font-face { font-family: 'Courier Prime'; src: url(/app/static/fonts/courier-700.woff2); font-weight: 700; }
+@font-face { font-family: Parisienne; src: url(/app/static/fonts/parisienne-400.woff2); }
+@font-face { font-family: 'Nanum Pen Script'; src: url(/app/static/fonts/pen-400.woff2); }
 html, body { margin: 0; height: 100%; }
-body { font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #3B2F25; line-height: 1.6;
-  background: #FFFCF7; display: flex; gap: 14px; overflow: hidden; }
+body { font-family: 'Courier Prime', 'Courier New', monospace; font-size: 1rem; color: #2B2422; line-height: 1.6;
+  background: #F4EDE1; display: flex; gap: 14px; overflow: hidden; }
 .rail { flex: 0 0 auto; display: flex; flex-direction: column; gap: 8px; padding: 4px 0; }
 .rail button { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer;
-  background: #FFFFFF; border: 1px solid #EAD8BF; border-radius: 12px; color: #8C5E2A; padding: 0; }
-.rail button:hover { background: #FBF5EC; }
-.rail button.on { background: #E7BE8A; border-color: #8C5E2A; color: #3B2F25; }
+  background: #FFFFFF; border: 1px solid #D9CDBE; border-radius: 12px; color: #8E2C2C; padding: 0; }
+.rail button:hover { background: #EFE6D6; }
+.rail button.on { background: #F2D46B; border-color: #8E2C2C; color: #2B2422; }
 .rail svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .swatches { display: none; flex-direction: column; align-items: center; gap: 6px; padding: 2px 0 4px; }
 body.sticky .swatches { display: flex; }
-.swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #FFFFFF; box-shadow: 0 0 0 1px #EAD8BF; cursor: pointer; }
-.swatch.on { box-shadow: 0 0 0 2px #8C5E2A; }
+.swatch { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #FFFFFF; box-shadow: 0 0 0 1px #D9CDBE; cursor: pointer; }
+.swatch.on { box-shadow: 0 0 0 2px #8E2C2C; }
 .scroller { flex: 1 1 auto; min-width: 0; overflow-y: auto; overflow-x: hidden; padding: 4px 8px 24px 2px; }
-.page { position: relative; background: #FFFFFF; border: 1px solid #EAD8BF; border-radius: 6px 14px 14px 6px;
-  padding: 12px 32px 40px 64px; margin-left: 22px; box-shadow: 0 2px 12px rgba(59, 47, 37, 0.06); }
+.page { position: relative; background: #FFFFFF; border: 1px solid #D9CDBE; border-radius: 6px 14px 14px 6px;
+  padding: 12px 32px 40px 64px; margin-left: 22px; box-shadow: 0 2px 12px rgba(43, 36, 34, 0.06); }
 .spiral { position: absolute; left: -24px; top: 18px; bottom: 18px; width: 56px; z-index: 2; pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='34'%3E%3Ccircle cx='40' cy='17' r='5' fill='%23F1E8DA' stroke='%23DCCDB8'/%3E%3Cpath d='M40 17 C 30 3, 8 5, 6 15' fill='none' stroke='%237E746A' stroke-width='3.2' stroke-linecap='round'/%3E%3Cpath d='M38 13 C 30 6, 14 6, 10 12' fill='none' stroke='%23C8BFB4' stroke-width='1' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: repeat-y; }
 .layout { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 28px; align-items: start; }
-.quiz { position: sticky; top: 8px; background: #FFFCF7; border: 1px solid #EAD8BF; border-radius: 12px; padding: 4px 14px 14px; }
+.quiz { position: sticky; top: 8px; background: #F4EDE1; border: 1.5px dashed #D9CDBE; border-radius: 12px; padding: 4px 14px 14px; }
 .quiz-head { display: flex; align-items: center; justify-content: space-between; }
-.quiz h2 { margin: 8px 0 6px; font-size: 1.7rem; }
+.quiz h2 { margin: 10px 0 6px; font-size: 1.272rem; }
 .icon-btn { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
-  background: #FFFFFF; border: 1px solid #EAD8BF; border-radius: 10px; color: #8C5E2A; }
-.icon-btn:hover, .show-gallery .gallery-toggle { background: #E7BE8A; color: #3B2F25; }
+  background: #FFFFFF; border: 1px solid #D9CDBE; border-radius: 10px; color: #8E2C2C; }
+.icon-btn:hover, .show-gallery .gallery-toggle { background: #F2D46B; color: #2B2422; }
 .icon-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .deck { position: relative; margin: 10px 4px 6px; }
-.deck::before, .deck::after { content: ""; position: absolute; inset: 0; background: #FFFFFF; border: 1px solid #EAD8BF;
-  border-radius: 16px; box-shadow: 0 4px 10px rgba(59, 47, 37, 0.06); }
+.deck::before, .deck::after { content: ""; position: absolute; inset: 0; background: #FFFFFF; border: 1px solid #D9CDBE;
+  border-radius: 16px; box-shadow: 0 4px 10px rgba(43, 36, 34, 0.06); }
 .deck::before { transform: rotate(-3deg); }
 .deck::after { transform: rotate(2deg) translate(3px, 2px); }
 .flashcard { position: relative; z-index: 1; height: 200px; perspective: 900px; cursor: pointer; }
 .flashcard .inner { position: relative; width: 100%; height: 100%; transition: transform 0.5s; transform-style: preserve-3d; }
 .flashcard.flipped .inner { transform: rotateY(180deg); }
 .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 14px;
-  border: 1px solid #EAD8BF; padding: 18px 16px 56px; display: flex; align-items: center; justify-content: center; text-align: center;
-  overflow: auto; box-shadow: 0 8px 18px rgba(59, 47, 37, 0.12); }
-.front { background: #FFFFFF; font-weight: 700; font-size: 1rem; }
-.back { background: #FFF6E3; transform: rotateY(180deg); font-family: Caveat, cursive; font-size: 1.5rem; line-height: 1.2; }
+  border: 1px solid #D9CDBE; padding: 18px 16px 56px; display: flex; align-items: center; justify-content: center; text-align: center;
+  overflow: auto; box-shadow: 0 8px 18px rgba(43, 36, 34, 0.12); }
+.front { background: #FFFDF8; border: 1.5px solid #2B2422 !important; font-weight: 600; font-size: 1rem; }
+.back { background: #FBF3DC; transform: rotateY(180deg); font-family: 'Nanum Pen Script', cursive; font-size: 1.5rem; line-height: 1.2; }
 .turn { position: absolute; z-index: 2; left: 50%; bottom: 14px; transform: translateX(-50%); display: flex; align-items: center; gap: 6px;
-  font: 600 0.9rem -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #FFFFFF; background: #8C5E2A;
-  border: none; border-radius: 999px; padding: 7px 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(140, 94, 42, 0.3); }
-.turn:hover { background: #75491C; }
+  font: 600 0.9rem -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; color: #FFFFFF; background: #2B2422;
+  border: none; border-radius: 999px; padding: 7px 16px; cursor: pointer; box-shadow: 0 4px 10px rgba(142, 44, 44, 0.3); }
+.turn:hover { background: #000000; }
 .turn svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
-.quiz-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-size: 0.9rem; color: #6B5B4B; }
-.round { width: 36px; height: 36px; border-radius: 50%; border: none; background: #8C5E2A; color: #FFFFFF; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; padding: 0; box-shadow: 0 3px 8px rgba(140, 94, 42, 0.3); }
-.round:hover { background: #75491C; }
+.quiz-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-size: 0.9rem; color: #6B5E57; }
+.round { width: 36px; height: 36px; border-radius: 50%; border: none; background: #8E2C2C; color: #FFFFFF; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; padding: 0; box-shadow: 0 3px 8px rgba(142, 44, 44, 0.3); }
+.round:hover { background: #6E1F1F; }
 .round svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .gallery { display: none; grid-template-columns: 1fr 1fr; gap: 8px; }
 .show-gallery .gallery { display: grid; }
 .show-gallery .single { display: none; }
-.mini { background: #FFFFFF; border: 1px solid #EAD8BF; border-radius: 10px; padding: 8px; font-size: 0.78rem; line-height: 1.3;
+.mini { background: #FFFFFF; border: 1px solid #D9CDBE; border-radius: 10px; padding: 8px; font-size: 0.78rem; line-height: 1.3;
   cursor: pointer; }
 .mini span { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.mini:hover { border-color: #8C5E2A; }
-.mini b { display: block; font-family: Caveat, cursive; font-size: 1.1rem; color: #8C5E2A; }
-h2 { font-family: Caveat, cursive; font-weight: 700; font-size: 2rem; color: #8C5E2A; margin: 22px 0 4px; }
+.mini:hover { border-color: #8E2C2C; }
+.mini b { display: block; font-family: 'Nanum Pen Script', cursive; font-size: 1.1rem; color: #8E2C2C; }
+h2 { font-family: Parisienne, cursive; font-weight: 400; font-size: 1.618rem; color: #8E2C2C; margin: 26px 0 8px; letter-spacing: 0.01em; }
 p { margin: 6px 0; }
 .term { font-weight: 600; padding: 0 4px; border-radius: 3px;
-  background: linear-gradient(100deg, rgba(231,190,138,0) 0%, rgba(231,190,138,0.85) 3%, rgba(231,190,138,0.55) 50%, rgba(231,190,138,0.8) 96%, rgba(231,190,138,0) 100%); }
-.card { background: #FFFCF7; border: 1px solid #EAD8BF; border-radius: 10px; padding: 12px 16px; margin: 10px 0; }
-.example { border-left: 3px solid #E7BE8A; padding: 2px 0 2px 14px; margin: 10px 0; }
-details { background: #FFFCF7; border: 1px solid #EAD8BF; border-radius: 10px; padding: 10px 14px; margin: 8px 0; }
+  background: linear-gradient(100deg, rgba(242,212,107,0) 0%, rgba(242,212,107,0.85) 3%, rgba(242,212,107,0.55) 50%, rgba(242,212,107,0.8) 96%, rgba(242,212,107,0) 100%); }
+.card { background: #F4EDE1; border: 1px solid #D9CDBE; border-radius: 10px; padding: 12px 16px; margin: 10px 0; }
+.example { border-left: 3px solid #F2D46B; padding: 2px 0 2px 14px; margin: 10px 0; }
+details { background: #F4EDE1; border: 1px solid #D9CDBE; border-radius: 10px; padding: 10px 14px; margin: 8px 0; }
 summary { cursor: pointer; font-weight: 600; }
-.answer { font-family: Caveat, cursive; font-size: 1.45rem; color: #8C5E2A; margin-top: 6px; }
+.answer { font-family: 'Nanum Pen Script', cursive; font-size: 1.45rem; color: #8E2C2C; margin-top: 6px; }
 canvas { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
 body.pen canvas, body.eraser canvas { pointer-events: auto; }
 body.pen canvas { cursor: crosshair; }
@@ -464,21 +642,51 @@ body.highlight .content { cursor: text; }
 body.sticky .page { cursor: copy; }
 .notes-layer { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .note { position: absolute; width: 180px; pointer-events: auto; display: flex; flex-direction: column;
-  box-shadow: 0 6px 14px rgba(59, 47, 37, 0.16); transform: rotate(-1.2deg); }
+  box-shadow: 0 6px 14px rgba(43, 36, 34, 0.16); transform: rotate(-1.2deg); }
 .note:nth-child(even) { transform: rotate(1deg); }
-.note .grip { height: 16px; cursor: grab; touch-action: none; background-color: rgba(59, 47, 37, 0.07);
-  background-image: radial-gradient(circle, rgba(59, 47, 37, 0.35) 1.2px, transparent 1.6px);
+.note .grip { height: 16px; cursor: grab; touch-action: none; background-color: rgba(43, 36, 34, 0.07);
+  background-image: radial-gradient(circle, rgba(43, 36, 34, 0.35) 1.2px, transparent 1.6px);
   background-size: 8px 8px; background-position: center; background-repeat: repeat-x; }
 .note .grip:active { cursor: grabbing; }
 .note .delete { position: absolute; top: 0; right: 2px; width: 18px; height: 16px; padding: 0; border: none; background: none;
-  font: 600 14px/16px -apple-system, Helvetica, Arial, sans-serif; color: #3B2F25; opacity: 0.25; cursor: pointer; }
+  font: 600 14px/16px -apple-system, Helvetica, Arial, sans-serif; color: #2B2422; opacity: 0.25; cursor: pointer; }
 .note:hover .delete { opacity: 0.7; }
-.note .delete:hover { opacity: 1; color: #8C5E2A; }
+.note .delete:hover { opacity: 1; color: #8E2C2C; }
 .note .text { min-height: 92px; padding: 8px 14px 12px; outline: none; cursor: text;
-  font-family: Caveat, cursive; font-size: 1.35rem; line-height: 1.25; color: #3B2F25; }
+  font-family: 'Nanum Pen Script', cursive; font-size: 1.35rem; line-height: 1.25; color: #2B2422; }
 .note .text:empty::before { content: "Write here..."; opacity: 0.45; }
 body.pen .note { pointer-events: none; }
 body.eraser .note { cursor: cell; }
+
+/* journal look */
+.page { background-color: #FFFDF8; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.2 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); border: 1.5px solid #2B2422; border-radius: 4px;
+  box-shadow: 5px 5px 0 #2B2422; padding: 24px 40px 48px 72px; margin-left: 26px; }
+.page::after { content: "STUDY JOURNAL / KEEP GOING"; position: absolute; right: 10px; top: 40px; writing-mode: vertical-rl;
+  font-size: 0.786rem; letter-spacing: 0.3em; color: #6B5E57; }
+.spiral { left: -30px; width: 64px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='150'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F4F4F2'/%3E%3Cstop offset='0.5' stop-color='%23A9A8A4'/%3E%3Cstop offset='1' stop-color='%236F6E6A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='46' cy='75' r='6' fill='%23E6DCCB' stroke='%23BFB3A2'/%3E%3Cpath d='M46 75 C 40 56, 8 56, 6 72 C 4 88, 30 94, 40 86' fill='none' stroke='url(%23m)' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M44 70 C 36 60, 14 60, 11 70' fill='none' stroke='%23FFFFFF' stroke-width='1.5' stroke-linecap='round' opacity='0.8'/%3E%3C/svg%3E"); background-repeat: repeat-y; background-position: 0 10px; }
+.layout { grid-template-columns: minmax(0, 1.618fr) minmax(250px, 1fr); gap: 0; }
+.content { padding-right: 32px; }
+h2 { font-family: 'Courier Prime', monospace; font-weight: 700; font-size: 1rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: #8E2C2C; display: inline-block; border-bottom: 2px solid #8E2C2C; padding-bottom: 2px; margin: 32px 0 12px; }
+.content > h2:first-child { margin-top: 8px; }
+.quiz { background: transparent; border: none; border-left: 1.5px solid #D9CDBE; border-radius: 0; padding: 4px 28px 14px 32px; }
+.quiz h2 { margin-top: 8px; font-size: 1rem; }
+.term { background: linear-gradient(100deg, rgba(242,212,107,0) 0%, rgba(242,212,107,0.95) 4%, rgba(242,212,107,0.7) 50%, rgba(242,212,107,0.9) 96%, rgba(242,212,107,0) 100%); }
+.card, details { background: #FFFDF8; border: 1.5px solid #2B2422; border-radius: 4px; box-shadow: 3px 3px 0 #2B2422; }
+.example { border-left: 3px solid #8E2C2C; }
+.rail button, .icon-btn { border: 1.5px solid #2B2422; border-radius: 4px; color: #2B2422; background: #FFFDF8; box-shadow: 2px 2px 0 #2B2422; }
+.rail button.on, .icon-btn:hover, .show-gallery .gallery-toggle { background: #F2D46B; color: #2B2422; }
+.deck::before, .deck::after { border: 1.5px solid #2B2422; border-radius: 4px; background: #FFFDF8; }
+.face { border-radius: 4px; border: 1.5px solid #2B2422; box-shadow: 4px 4px 0 #2B2422; }
+.front { background: #FFFDF8; border: 1.5px solid #2B2422 !important; font-weight: 700; }
+.back { background: #FBF3DC; font-family: 'Nanum Pen Script', cursive; font-size: 1.618rem; line-height: 1.15; }
+.turn { border-radius: 4px; background: #2B2422; font-family: 'Courier Prime', monospace; letter-spacing: 0.08em; }
+.round { border-radius: 4px; background: #FFFDF8; color: #2B2422; border: 1.5px solid #2B2422; box-shadow: 2px 2px 0 #2B2422; }
+.round:hover { background: #F2D46B; }
+.mini { border: 1.5px solid #2B2422; border-radius: 4px; }
+.mini b { font-family: 'Nanum Pen Script', cursive; font-size: 1.272rem; color: #8E2C2C; }
+.note .text { font-family: 'Nanum Pen Script', cursive; font-size: 1.618rem; line-height: 1.1; }
+.answer { font-family: 'Nanum Pen Script', cursive; font-size: 1.618rem; }
 </style>
 <div class="rail">
   <button data-mode="pen" title="Pen" aria-label="Pen">
@@ -491,8 +699,8 @@ body.eraser .note { cursor: cell; }
     <svg viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8z"/><path d="M15 3v4a2 2 0 0 0 2 2h4"/></svg>
   </button>
   <div class="swatches">
-    <div class="swatch on" data-color="#F9E3B8" style="background:#F9E3B8" title="Butter"></div>
-    <div class="swatch" data-color="#F3D7BF" style="background:#F3D7BF" title="Peach"></div>
+    <div class="swatch on" data-color="#F6E3A1" style="background:#F6E3A1" title="Butter"></div>
+    <div class="swatch" data-color="#F1D3CF" style="background:#F1D3CF" title="Peach"></div>
     <div class="swatch" data-color="#DCE5C8" style="background:#DCE5C8" title="Sage"></div>
   </div>
   <button data-mode="eraser" title="Eraser" aria-label="Eraser">
@@ -576,7 +784,7 @@ const canvas = document.querySelector("canvas");
 const layer = document.querySelector(".notes-layer");
 const ctx = canvas.getContext("2d");
 let mode = "read";
-let noteColor = "#F9E3B8";
+let noteColor = "#F6E3A1";
 let drawing = false;
 
 function load(name) { try { return localStorage.getItem(KEY + ":" + name); } catch (e) { return null; } }
@@ -672,7 +880,7 @@ content.addEventListener("mouseup", () => {
   if (!selection || selection.isCollapsed) return;
   content.contentEditable = "true";
   document.execCommand("styleWithCSS", false, true);
-  document.execCommand("hiliteColor", false, "#F6D58E");
+  document.execCommand("hiliteColor", false, "#F2D46B");
   content.contentEditable = "false";
   selection.removeAllRanges();
   store("highlights", content.innerHTML);
@@ -699,7 +907,7 @@ canvas.addEventListener("pointerdown", event => {
   if (mode !== "pen" && mode !== "eraser") return;
   drawing = true;
   if (mode === "eraser") { eraseUnder(event); ctx.globalCompositeOperation = "destination-out"; ctx.lineWidth = 20; }
-  else { ctx.globalCompositeOperation = "source-over"; ctx.lineWidth = 2.5; ctx.strokeStyle = "#8C5E2A"; }
+  else { ctx.globalCompositeOperation = "source-over"; ctx.lineWidth = 2.5; ctx.strokeStyle = "#8E2C2C"; }
   ctx.beginPath(); ctx.moveTo(...point(event));
 });
 canvas.addEventListener("pointermove", event => { if (!drawing) return; ctx.lineTo(...point(event)); ctx.stroke(); });
@@ -801,9 +1009,9 @@ def show_header():
     streak_text = f"{streak}-day streak" if streak else "Start a streak today"
     with st.container(key="app_header"):
         left, middle, right = st.columns([4, 2, 1], vertical_alignment="center")
-        left.html(f"<div class='brand'><span class='wordmark'>NOTE-IT</span><span class='hand greet'>{greeting()}</span></div>")
+        left.html(f"<div class='brand'><span class='wordmark'>Note-it</span><span class='hand greet'>{greeting()}</span></div>")
         middle.html(f"<div class='hand streak'>{streak_text}</div>")
-        if right.button("Calendar", icon=":material/calendar_month:"):
+        if right.button("Calendar", icon=":material/calendar_month:", key="calendar_button"):
             show_calendar()
 
 
@@ -848,7 +1056,7 @@ def heatmap(days):
     month_label = "utcdate(toDate(datum.value)) <= 7 ? utcFormat(toDate(datum.value), '%b') : ''"
     return (
         alt.Chart(pd.DataFrame(rows))
-        .mark_rect(cornerRadius=3, stroke="#FFFCF7", strokeWidth=3)
+        .mark_rect(cornerRadius=3, stroke="#F4EDE1", strokeWidth=3)
         .encode(
             x=alt.X("week:O", title=None, axis=alt.Axis(orient="top", labelExpr=month_label, labelAngle=0, ticks=False, domain=False)),
             y=alt.Y("weekday:O", sort=DAY_NAMES, title=None, axis=alt.Axis(ticks=False, domain=False)),
@@ -882,6 +1090,50 @@ def show_calendar():
             st.rerun()
 
 
+FLOURISH = (
+    "<svg class='flourish' viewBox='0 0 220 24' aria-hidden='true'><path d='M4 14 C 60 2, 120 26, 216 8' fill='none' "
+    "stroke='#8E2C2C' stroke-width='2.5' stroke-linecap='round'/></svg>"
+)
+CHEVRON = (
+    "<svg class='chevron' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' "
+    "stroke-linejoin='round' aria-hidden='true'><path d='m6 6 6 6 6-6'/><path d='m6 12 6 6 6-6'/></svg>"
+)
+
+
+def show_start_screen():
+    days = sessions_by_day()
+    topics, cards = [], 0
+    for paths in days.values():
+        for path in paths:
+            result = json.loads(path.read_text())["result"]
+            cards += len(result.get("Quiz Yourself", []))
+            topic = result.get("Topic")
+            if topic and topic not in topics:
+                topics.append(topic)
+    owner = f"A study journal for {html.escape(FRIEND_NAME)}" if FRIEND_NAME else "A study journal"
+    ovals = "".join(f"<span class='oval'>{html.escape(t)}</span>" for t in topics[-6:])
+    if not ovals:
+        ovals = "<span class='kicker'>Your topics will collect here</span>"
+    st.html(
+        "<div class='journal-hero'>"
+        "<div class='scrap polaroid'><img src='/app/static/buddy.svg' alt=''><span>your study buddy</span></div>"
+        "<div class='scrap sticky-scrap'>you've got this. one page at a time.</div>"
+        "<div class='scrap card-scrap'><b>FLASH CARD</b>What are the three memory stores?</div>"
+        f"<div class='kicker'>{owner}</div>"
+        "<div class='journal-title'>What are we<br>studying today?</div>"
+        f"{FLOURISH}"
+        "<div class='journal-sub'>Paste or upload your lecture notes in the sidebar, then press Generate.</div>"
+        f"{CHEVRON}</div>"
+        "<div class='journal-row'>"
+        f"<div class='topics'><div class='row-label'>Topics so far</div>{ovals}</div>"
+        "<div class='stats'><div class='row-label'>Your progress</div><div class='stat-grid'>"
+        f"<div class='stat'><b>{len(days)}</b><span>Study days</span></div>"
+        f"<div class='stat'><b>{study_streak(days)}</b><span>Day streak</span></div>"
+        f"<div class='stat'><b>{cards}</b><span>Flash cards</span></div>"
+        "</div></div></div>"
+    )
+
+
 def show_footer():
     cheer = CHEERS[date.today().toordinal() % len(CHEERS)]
     with st.container(key="app_footer"):
@@ -907,7 +1159,7 @@ def show_mode_buttons(current):
     selected = MODES[current][0]
     st.html(
         f"<style>.st-key-mode_{selected} button {{"
-        "background: #E7BE8A !important; border-color: #8C5E2A !important; }</style>"
+        "background: #F2D46B !important; border-color: #8E2C2C !important; }</style>"
     )
 
 
@@ -1026,7 +1278,7 @@ if "result" in st.session_state:
             st.session_state["diagram"] = set_direction(st.session_state["diagram"], LAYOUTS[layout])
         show_diagram(st.session_state["diagram"])
 else:
-    st.html(START_SCREEN)
+    show_start_screen()
 
 show_buddy_popup()
 show_footer()

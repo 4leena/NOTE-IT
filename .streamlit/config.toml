@@ -6,23 +6,34 @@ toolbarMode = "minimal"
 
 [theme]
 base = "light"
-primaryColor = "#8C5E2A"
-backgroundColor = "#FFFCF7"
-secondaryBackgroundColor = "#F8EFE3"
-textColor = "#3B2F25"
-borderColor = "#EAD8BF"
-linkColor = "#8C5E2A"
-font = "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
-headingFontSizes = ["2.5rem", "1.875rem", "1.25rem"]
-headingFontWeights = 600
+primaryColor = "#8E2C2C"
+backgroundColor = "#F4EDE1"
+secondaryBackgroundColor = "#EFE6D6"
+textColor = "#2B2422"
+borderColor = "#D9CDBE"
+linkColor = "#8E2C2C"
+font = "Courier Prime, Courier New, monospace"
+headingFont = "Parisienne, cursive"
+headingFontSizes = ["4.236rem", "2.618rem", "1.618rem", "1.272rem", "1rem", "0.786rem"]
+headingFontWeights = 400
 baseRadius = "small"
 
 [[theme.fontFaces]]
-family = "Caveat"
-url = "app/static/fonts/caveat-400.woff2"
+family = "Courier Prime"
+url = "app/static/fonts/courier-400.woff2"
 weight = 400
 
 [[theme.fontFaces]]
-family = "Caveat"
-url = "app/static/fonts/caveat-700.woff2"
+family = "Courier Prime"
+url = "app/static/fonts/courier-700.woff2"
 weight = 700
+
+[[theme.fontFaces]]
+family = "Parisienne"
+url = "app/static/fonts/parisienne-400.woff2"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Nanum Pen Script"
+url = "app/static/fonts/pen-400.woff2"
+weight = 400
