@@ -83,7 +83,7 @@ def set_direction(code, direction):
 def show_diagram(code):
     safe = json.dumps(code).replace("</", "<\\/")
     st.iframe(MERMAID_HTML.replace("DIAGRAM_CODE", safe), height=450)
-    with st.expander("Edit diagram"):
+    with st.expander("Edit as code (advanced)"):
         st.caption("Change the text and press Ctrl+Enter (Cmd+Enter on Mac) to redraw.")
         st.text_area("Mermaid code", key="diagram", height=200, label_visibility="collapsed")
 
@@ -108,7 +108,11 @@ def show_buddy():
             with st.chat_message("user"):
                 st.markdown(question)
             with st.spinner("Thinking…"):
-                reply = gemma.chat(history, st.session_state["notes"], question, MODES[label])
+                try:
+                    reply = gemma.chat(history, st.session_state["notes"], question, MODES[label])
+                except gemma.GemmaError as error:
+                    st.error(str(error))
+                    return
             with st.chat_message("assistant"):
                 st.markdown(reply)
         history.append({"role": "user", "content": question})
@@ -129,10 +133,16 @@ with st.sidebar:
     if generate and notes.strip() == "":
         st.warning("Paste or upload some notes first.")
     elif generate:
-        with st.spinner("Organizing your notes…"):
+        try:
+            with st.spinner("Organizing your notes…"):
+                result = gemma.rewrite_notes(notes)
+                diagram = gemma.make_diagram(result)
+        except gemma.GemmaError as error:
+            st.error(str(error))
+        else:
             st.session_state["notes"] = notes
-            st.session_state["result"] = gemma.rewrite_notes(notes)
-            st.session_state["diagram"] = gemma.make_diagram(st.session_state["result"])
+            st.session_state["result"] = result
+            st.session_state["diagram"] = diagram
             st.session_state["history"] = []
 
 notes_col, buddy_col = st.columns([3, 2], gap="large")
@@ -149,8 +159,11 @@ with notes_col:
             show_notes(result)
         with diagram_tab:
             if st.button("Regenerate diagram"):
-                with st.spinner("Redrawing…"):
-                    st.session_state["diagram"] = gemma.make_diagram(result)
+                try:
+                    with st.spinner("Redrawing…"):
+                        st.session_state["diagram"] = gemma.make_diagram(result)
+                except gemma.GemmaError as error:
+                    st.error(str(error))
             if st.session_state["diagram"].startswith(("flowchart", "graph")):
                 layout = st.radio("Layout", list(LAYOUTS), horizontal=True)
                 st.session_state["diagram"] = set_direction(st.session_state["diagram"], LAYOUTS[layout])
