@@ -16,3 +16,13 @@ font = "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
 headingFontSizes = ["2.5rem", "1.875rem", "1.25rem"]
 headingFontWeights = 600
 baseRadius = "small"
+
+[[theme.fontFaces]]
+family = "Caveat"
+url = "app/static/fonts/caveat-400.woff2"
+weight = 400
+
+[[theme.fontFaces]]
+family = "Caveat"
+url = "app/static/fonts/caveat-700.woff2"
+weight = 700
