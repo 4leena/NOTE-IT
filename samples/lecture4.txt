@@ -1,0 +1,39 @@
+CPSC operating systems - lec 6 processes
+
+process = program in execution. program is passive (file on disk), process is active
+process in memory has: text (code), data (globals), heap (dynamic, grows up), stack (fn calls, grows down)
+
+process states
+new -> ready -> running -> terminated
+running -> waiting (for I/O) -> ready
+running -> ready when interupted / time slice up
+only 1 process RUNNING per core at a time
+
+PCB = process control block. OS keeps one per process
+has: PID, state, program counter, registers, scheduling info, memory info, open files
+
+context switch = save state of old process into its PCB, load new ones
+pure overhead!! system does no useful work during it
+
+fork() in C - creates child process (copy of parent)
+returns 0 in child, child's PID in parent, -1 if error
+exec() replaces process memory w/ new program
+wait() - parent waits for child to finish
+zombie = child finished but parent hasnt called wait() yet
+orphan = parent died first, gets adopted by init (pid 1)
+
+int pid = fork();
+if (pid == 0) { /* child */ }
+else if (pid > 0) { wait(NULL); /* parent */ }
+
+threads vs processes
+- threads share code, data, files but have own stack + registers
+- cheaper to create + switch than processes
+- but one thread crashing can kill whole process
+
+scheduling (started, more next class)
+FCFS - first come first served. simple but convoy effect (short jobs stuck behind long one)
+SJF - shortest job first, optimal avg waiting time but cant know burst length in advance
+RR round robin - time quantum, preemptive, good for interactive. quantum too big -> becomes FCFS, too small -> too many context switches
+
+assignment 2 due fri: fork tree problem, draw it out!!

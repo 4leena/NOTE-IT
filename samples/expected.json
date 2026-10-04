@@ -1,0 +1,20 @@
+{
+  "Key Terms": [
+    {"term": "Classical conditioning", "definition": "Learning by associating a neutral stimulus with one that already causes a response."}
+  ],
+  "Theories & Researchers": [
+    {"name": "Pavlov", "summary": "Showed dogs learn to salivate to a bell paired with food."}
+  ],
+  "Key Studies": [
+    {"study": "Pavlov (1927)", "method": "Lab experiment with dogs, bell paired with food", "findings": "The bell alone came to trigger salivation."}
+  ],
+  "Evaluation": [
+    "Animal studies may not generalise to humans."
+  ],
+  "Real-World Examples": [
+    "Feeling hungry when you hear a snack wrapper."
+  ],
+  "Quiz Yourself": [
+    {"q": "What is the unconditioned stimulus in Pavlov's study?", "a": "The food."}
+  ]
+}

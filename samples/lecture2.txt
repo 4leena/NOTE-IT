@@ -1,0 +1,37 @@
+BIOL - cellular respiration (ch 9)
+
+big picture: glucose + O2 -> CO2 + H2O + ATP
+C6H12O6 + 6O2 -> 6CO2 + 6H2O + energy
+its a redox rxn, glucose oxidized, O2 reduced
+
+3 (or 4??) stages - prof counts pyruvate oxidation seperate
+1. glycolysis
+- in CYTOPLASM, doesnt need O2 (anaerobic)
+- glucose (6C) -> 2 pyruvate (3C)
+- uses 2 ATP, makes 4 -> NET 2 ATP
+- also 2 NADH
+2. pyruvate oxidation
+- pyruvate goes into mitochondria
+- -> acetyl CoA, releases CO2, makes NADH
+3. krebs cycle / citric acid cycle
+- mitochondrial MATRIX
+- 2 turns per glucose (bc 2 pyruvate!!)
+- makes NADH, FADH2, CO2, 2 ATP total
+4. ETC + oxidative phosphorylation
+- INNER mitochondrial membrane (cristae)
+- NADH + FADH2 drop off electrons
+- pumps H+ ions -> gradient -> ATP synthase makes ATP (chemiosmosis)
+- O2 = FINAL electron acceptor, forms water
+- makes MOST ATP ~26-28
+
+total ~30-32 ATP per glucose (older books say 36-38, prof said either ok if explained)
+
+no oxygen?? -> fermentation
+- lactic acid fermentation: muscles during sprint, the burn
+- alcoholic fermentation: yeast -> ethanol + CO2 (bread, beer)
+- only gets 2 ATP from glycolysis, regenerates NAD+ so glycolysis can keep going
+
+mitochondria = "powerhouse of the cell" (yes she actually said it)
+cyanide blocks the ETC -> why its deadly
+
+**know WHERE each stage happens, def an exam q
