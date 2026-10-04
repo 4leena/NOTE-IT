@@ -17,5 +17,14 @@ with st.sidebar:
 
     if generate and notes.strip() == "":
         st.warning("Paste or upload some notes first.")
+    elif generate:
+        with st.spinner("Organizing your notes…"):
+            st.session_state["notes"] = notes
+            st.session_state["result"] = gemma.rewrite_notes(notes)
+            st.session_state["diagram"] = gemma.make_diagram(st.session_state["result"])
 
-st.caption("Paste or upload your notes in the sidebar, then click Generate.")
+if "result" in st.session_state:
+    st.write(st.session_state["result"])
+    st.code(st.session_state["diagram"])
+else:
+    st.caption("Paste or upload your notes in the sidebar, then click Generate.")
