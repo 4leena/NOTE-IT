@@ -1,0 +1,22 @@
+social influence notes (conformity + obedience)
+
+CONFORMITY = changing ur behaviour or beliefs to fit a group. 3 types (kelman):
+- compliance: go along in public but dont actually agree privately
+- identification: adopt views bc u want to be part of the group (e.g. a team)
+- internalisation: genuinely change ur belief, lasts even when group isnt there
+2 explanations -> normative social influence (NSI, want to be liked) and informational (ISI, group might know better, esp. when task is hard / unclear)
+
+asch 1951 !!
+123 american male undergrads. they thought it was a vision test. had to say which of 3 lines matched a standard line. answer was obvious. but the others in the room were confederates (actors) and gave the wrong answer on 12 out of 18 trials
+results: 37% conformed on critical trials, 75% conformed at least once, 25% never did. in interviews ppl said they went along so they wouldnt look stupid (NSI)
+variations: group size 3 confederates was enough for most of the effect, more didnt add much. if one confederate disagreed w/ the others conformity dropped to ~5%. harder task -> more conformity
+crit: only men, only americans in 1950s - "child of its time" ?? ; artificial task, no real consequences, so low ecological validity. also unethical-ish, deception
+
+OBEDIENCE = following an order from an authority figure
+milgram 1963, yale uni
+40 men aged 20-50 recruited by newspaper ad. "teacher" + "learner" (actor, always the learner, rigged). teacher gave electric shocks for wrong answers, going up in 15V steps to 450V. experimenter in grey lab coat said stuff like "the experiment requires that you continue"
+results: 100% went to 300V, 65% went all the way to 450V. ppl sweated, trembled, laughed nervously but kept going
+why: legitimacy of authority (yale, lab coat), gradual escalation (foot in the door), agentic state = they felt like an agent, not responsible
+crit: ethical - psychological harm, deception, right to withdraw was kinda blocked by the prods. but debriefed after and most said they were glad to take part. also maybe ppl knew it was fake? orne & holland said so. bickman 1974 field study - ppl obeyed a guy in a guard uniform more than one in a suit
+
+real world: nurses following a doctors order w/o checking, soldiers "just following orders", someone in a hi-vis vest telling u where to go and u just do it
