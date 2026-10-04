@@ -20,8 +20,6 @@ def make_diagram(notes_dict):
     time.sleep(1)
     return FAKE_DIAGRAM
 
-def chat(history, notes, question):
+def chat(history, notes, question, mode="tutor"):
     time.sleep(1)
-    if question == "Quiz me":
-        return "Quiz time! What is the unconditioned stimulus in Pavlov's study?"
-    return "(fake) You asked: " + question
+    return f"({mode}) You asked: " + question

@@ -20,11 +20,15 @@ Three functions. No subject detection (psychology only).
 - `notes_dict`: the dict returned by `rewrite_notes`.
 - Returns **raw Mermaid code only**: no ```` ``` ```` fences, no explanation text. Starts with `flowchart` or `mindmap`.
 
-### `chat(history: list, notes: str, question: str) -> str`
+### `chat(history: list, notes: str, question: str, mode: str = "tutor") -> str`
 - `history`: earlier messages, oldest first, **not** including `question`:
   `[{"role": "user", "content": "..."}, {"role": "assistant", "content": "..."}]`
 - `notes`: the raw pasted text (same string given to `rewrite_notes`).
-- `question`: the new user message. The "Quiz me" button sends the literal text `"Quiz me"`.
+- `question`: the new user message.
+- `mode`: how Study Buddy talks. Only changes the system prompt; every mode answers only from the notes.
+  - `"tutor"`: teaches like a patient teacher, step by step, checks understanding.
+  - `"peer"`: explains like a friend who took the course, casual and simple.
+  - `"examiner"`: asks questions back one at a time, marks the answer, points out what's missing. (Replaces the old "Quiz me" button.)
 - Returns the reply text. The UI appends both `question` and the reply to `history`.
 
 ### `GemmaError`
