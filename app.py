@@ -8,7 +8,70 @@ import fake_gemma as gemma
 
 st.set_page_config(page_title="NOTE-IT", layout="wide")
 
-MODES = {"Tutor": "tutor", "Peer": "peer", "Examiner": "examiner"}
+MODES = {
+    "Tutor": ("tutor", ":material/school:", "I'll explain your notes step by step."),
+    "Peer": ("peer", ":material/group:", "Ask me anything. I'll keep it simple."),
+    "Examiner": ("examiner", ":material/fact_check:", "I'll quiz you on your notes and mark your answers."),
+}
+
+BUDDY_CSS = """
+<style>
+.st-key-buddy {
+  background: #FBF5EC;
+  border: 1px solid #EAD8BF;
+  border-radius: 14px;
+  padding-bottom: 12px;
+  overflow: hidden;
+}
+.st-key-buddy_header {
+  background: #F3E2CB;
+  border-bottom: 1px solid #EAD8BF;
+  padding: 12px 16px;
+}
+.st-key-buddy_body {
+  padding: 0 14px;
+}
+.st-key-buddy [class*="st-key-mode_"] button {
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid #EAD8BF;
+}
+.st-key-buddy [data-testid="stChatMessage"] {
+  background: transparent;
+}
+.st-key-buddy [data-testid="stChatMessageContent"] {
+  flex: 0 1 auto;
+  max-width: 85%;
+  padding: 8px 14px;
+}
+.st-key-buddy [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+  flex-direction: row-reverse;
+}
+.st-key-buddy [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
+  background: #E7BE8A;
+  border-radius: 16px 16px 4px 16px;
+}
+.st-key-buddy [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) [data-testid="stChatMessageContent"] {
+  background: #FFFFFF;
+  border: 1px solid #EAD8BF;
+  border-radius: 16px 16px 16px 4px;
+}
+.st-key-buddy [data-testid="stChatInput"],
+.st-key-buddy [data-testid="stChatInput"] > div {
+  border-radius: 999px;
+}
+</style>
+"""
+
+EMPTY_STATE = """
+<div style="text-align:center; padding:56px 12px; color:#3B2F25;">
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#8C5E2A" stroke-width="1.5" stroke-linejoin="round">
+    <path d="M12 3l2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2z"/>
+  </svg>
+  <div style="font-size:1.2rem; font-weight:600; margin-top:12px;">TITLE</div>
+  <div style="opacity:0.7; margin-top:4px;">SUBTITLE</div>
+</div>
+"""
 
 LAYOUTS = {"Top to bottom": "TD", "Left to right": "LR"}
 
@@ -26,7 +89,17 @@ function showFallback() {
 if (typeof mermaid === "undefined") {
   showFallback();
 } else {
-  mermaid.initialize({ startOnLoad: false, theme: "neutral" });
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: "base",
+    themeVariables: {
+      primaryColor: "#F8EFE3",
+      primaryBorderColor: "#8C5E2A",
+      primaryTextColor: "#3B2F25",
+      lineColor: "#8C5E2A",
+      fontFamily: "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
+    }
+  });
   mermaid.render("graph", code)
     .then(({ svg }) => { document.getElementById("diagram").innerHTML = svg; })
     .catch(showFallback);
@@ -88,35 +161,62 @@ def show_diagram(code):
         st.text_area("Mermaid code", key="diagram", height=200, label_visibility="collapsed")
 
 
+def empty_state(title, subtitle):
+    st.html(EMPTY_STATE.replace("TITLE", title).replace("SUBTITLE", subtitle))
+
+
+def show_mode_buttons(current):
+    columns = st.columns(len(MODES))
+    for column, (label, (value, icon, _)) in zip(columns, MODES.items()):
+        if column.button(label, icon=icon, key=f"mode_{value}", width="stretch"):
+            st.session_state["mode"] = label
+            st.rerun()
+    selected = MODES[current][0]
+    st.html(
+        f"<style>.st-key-mode_{selected} button {{"
+        "background: #E7BE8A !important; border-color: #8C5E2A !important; }</style>"
+    )
+
+
 def show_buddy():
-    st.subheader("Study Buddy")
-    if "result" not in st.session_state:
-        st.caption("Generate your notes first, then ask questions here.")
-        return
-    label = st.radio("Mode", list(MODES), horizontal=True)
-    history = st.session_state.setdefault("history", [])
+    st.html(BUDDY_CSS)
+    with st.container(key="buddy"):
+        with st.container(key="buddy_header"):
+            st.markdown("**:material/auto_awesome: Study Buddy**")
 
-    messages = st.container(height=450)
-    with messages:
-        for msg in history:
-            with st.chat_message(msg["role"]):
-                st.markdown(msg["content"])
+        with st.container(key="buddy_body"):
+            if "result" not in st.session_state:
+                empty_state("Your Study Buddy", "Generate your notes first, then ask questions here.")
+                return
 
-    question = st.chat_input("Ask about your notes")
-    if question:
-        with messages:
-            with st.chat_message("user"):
-                st.markdown(question)
-            with st.spinner("Thinking…"):
-                try:
-                    reply = gemma.chat(history, st.session_state["notes"], question, MODES[label])
-                except gemma.GemmaError as error:
-                    st.error(str(error))
-                    return
-            with st.chat_message("assistant"):
-                st.markdown(reply)
-        history.append({"role": "user", "content": question})
-        history.append({"role": "assistant", "content": reply})
+            mode = st.session_state.setdefault("mode", "Tutor")
+            history = st.session_state.setdefault("history", [])
+
+            messages = st.container(height=420, border=False)
+            with messages:
+                if not history:
+                    empty_state("How can I help you today?", MODES[mode][2])
+                for msg in history:
+                    with st.chat_message(msg["role"]):
+                        st.markdown(msg["content"])
+
+            show_mode_buttons(mode)
+            question = st.chat_input("Type your message…")
+
+        if question:
+            with messages:
+                with st.chat_message("user"):
+                    st.markdown(question)
+                with st.spinner("Thinking…"):
+                    try:
+                        reply = gemma.chat(history, st.session_state["notes"], question, MODES[mode][0])
+                    except gemma.GemmaError as error:
+                        st.error(str(error))
+                        return
+                with st.chat_message("assistant"):
+                    st.markdown(reply)
+            history.append({"role": "user", "content": question})
+            history.append({"role": "assistant", "content": reply})
 
 
 with st.sidebar:

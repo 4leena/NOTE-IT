@@ -1,2 +1,18 @@
 [server]
 enableStaticServing = true
+
+[client]
+toolbarMode = "minimal"
+
+[theme]
+base = "light"
+primaryColor = "#8C5E2A"
+backgroundColor = "#FFFCF7"
+secondaryBackgroundColor = "#F8EFE3"
+textColor = "#3B2F25"
+borderColor = "#EAD8BF"
+linkColor = "#8C5E2A"
+font = "-apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif"
+headingFontSizes = ["2.5rem", "1.875rem", "1.25rem"]
+headingFontWeights = 600
+baseRadius = "small"
