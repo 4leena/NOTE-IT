@@ -66,3 +66,8 @@ unless the notes use it. Give a quick everyday example when it helps.""",
 When the student answers, say if it is right, point out anything missing, then ask the next question.
 Never give the answer before the student has tried. If there is no question pending, ask a first one.""",
 }
+
+HANDWRITING_PROMPT = """This is a photo of a page of handwritten psychology lecture notes.
+Copy out the text exactly as written, line by line, keeping the student's own words, symbols and numbers.
+Write arrows as ->. Ignore faint writing showing through from the other side of the page.
+Output only the text, with no comments or headings of your own."""

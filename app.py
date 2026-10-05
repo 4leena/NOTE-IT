@@ -500,6 +500,17 @@ button[data-testid="stBaseButton-secondary"] { border-radius: 4px; border: 1.5px
   padding-top: calc(64px + 2rem);
   padding-bottom: calc(48px + 2rem);
 }
+.st-key-note_type [data-testid="stButtonGroup"] > div {
+  flex-wrap: nowrap;
+}
+.st-key-note_type button {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 4px 2px;
+}
+.st-key-note_type button p {
+  font-size: var(--step-down);
+}
 </style>
 """
 
@@ -1122,7 +1133,7 @@ def show_start_screen():
         f"<div class='kicker'>{owner}</div>"
         "<div class='journal-title'>What are we<br>studying today?</div>"
         f"{FLOURISH}"
-        "<div class='journal-sub'>Paste or upload your lecture notes in the sidebar, then press Generate.</div>"
+        "<div class='journal-sub'>Paste, upload or photograph your lecture notes in the sidebar, then press Generate.</div>"
         f"{CHEVRON}</div>"
         "<div class='journal-row'>"
         f"<div class='topics'><div class='row-label'>Topics so far</div>{ovals}</div>"
@@ -1228,15 +1239,39 @@ open_requested_session()
 with st.sidebar:
     st.caption("Paste your messy notes and get study-ready notes back.")
 
-    notes = st.text_area("Paste your notes", height=250)
-    uploaded = st.file_uploader("…or upload a file", type=["txt", "md"])
-    if uploaded is not None:
-        notes = uploaded.read().decode("utf-8")
+    note_type = st.segmented_control(
+        "Your notes are", ["Typed", "Handwritten", "Both"],
+        default="Typed", required=True, key="note_type", width="stretch",
+    )
+
+    if note_type != "Typed":
+        photos = st.file_uploader(
+            "Photos of your pages", type=["jpg", "jpeg", "png"], accept_multiple_files=True
+        )
+        if st.button("Read my handwriting", width="stretch", disabled=not photos):
+            pages = []
+            try:
+                for number, photo in enumerate(photos, start=1):
+                    with st.spinner(f"Reading page {number} of {len(photos)}…"):
+                        pages.append(gemma.read_handwriting(photo.getvalue()))
+            except gemma.GemmaError as error:
+                st.error(str(error))
+            else:
+                typed = st.session_state.get("notes_input", "") if note_type == "Both" else ""
+                st.session_state["notes_input"] = "\n\n".join([typed.strip()] + pages).strip()
+
+    notes = st.text_area("Your notes", height=250, key="notes_input")
+    if note_type != "Typed":
+        st.caption("Gemma can misread handwriting. Check names and numbers before you press Generate.")
+    if note_type != "Handwritten":
+        uploaded = st.file_uploader("…or upload a file", type=["txt", "md"])
+        if uploaded is not None:
+            notes = uploaded.read().decode("utf-8")
 
     generate = st.button("Generate", type="primary", width="stretch")
 
     if generate and notes.strip() == "":
-        st.warning("Paste or upload some notes first.")
+        st.warning("Add your notes first.")
     elif generate:
         try:
             with st.spinner("Organizing your notes…"):

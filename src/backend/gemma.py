@@ -63,6 +63,8 @@ def _parse_notes(text):
         items = data.get(section, [])
         if not isinstance(items, list):
             return None
+        if fields is None:  # Gemma sometimes sends {"example": ..., "context": ...} instead of a sentence
+            items = [" ".join(map(str, i.values())) if isinstance(i, dict) else i for i in items]
         for item in items:
             if fields is None and not isinstance(item, str):
                 return None
@@ -165,3 +167,12 @@ def chat(history, notes, question, mode="tutor"):
         + [{"role": "user", "content": question}]
     )
     return _ask(messages).strip()
+
+
+def read_handwriting(image):
+    """Photo of one handwritten page (bytes) -> the text on it."""
+    messages = [{"role": "user", "content": templates.HANDWRITING_PROMPT, "images": [image]}]
+    text = _ask(messages, max_tokens=1500).strip()
+    if not text:
+        raise GemmaError("Gemma couldn't read that photo. Try a clearer, brighter picture.")
+    return text

@@ -27,3 +27,7 @@ def chat(history, notes, question, mode="tutor"):
     if "ERROR" in question:
         raise GemmaError("Study Buddy couldn't reach Gemma. Check Ollama is running and try again.")
     return f"({mode}) You asked: " + question
+
+def read_handwriting(image):
+    time.sleep(1)
+    return "Sensation -> the sensory system detects a stimulus.\nPerception -> organizing and interpreting the information."

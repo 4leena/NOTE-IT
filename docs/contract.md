@@ -10,7 +10,7 @@ MODEL = "gemma3:4b"   # ollama list → ID a2af6cc3eb7f
 
 ## Functions in `gemma.py`
 
-Three functions. No subject detection (psychology only).
+Four functions. No subject detection (psychology only).
 
 ### `rewrite_notes(notes: str) -> dict`
 - `notes`: the raw text the user pasted.
@@ -30,6 +30,11 @@ Three functions. No subject detection (psychology only).
   - `"peer"`: explains like a friend who took the course, casual and simple.
   - `"examiner"`: asks questions back one at a time, marks the answer, points out what's missing. (Replaces the old "Quiz me" button.)
 - Returns the reply text. The UI appends both `question` and the reply to `history`.
+
+### `read_handwriting(image: bytes) -> str`
+- `image`: one photo (jpg or png) of a page of handwritten notes, as bytes.
+- Returns the text on the page as plain text. The UI calls it once per page, joins the pages, and puts the text in the notes box so the student can fix misread words before `rewrite_notes`.
+- Uses Gemma 3's image input, so no extra model is needed. About 10 to 15 s per page.
 
 ### `GemmaError`
 ```python
