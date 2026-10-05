@@ -4,7 +4,7 @@ Paste your rough lecture notes and get back notes you can study from, a diagram,
 
 We made it for a friend who studies psychology, for the DEV Hacktoberfest Weekend Challenge ("Build for a Friend"), in the Best Use of Gemma category.
 
-![NOTE-IT showing study notes on memory, a flash card, the notebook tools and the Study Buddy robot](docs/screenshot.png)
+![NOTE-IT showing study notes on operant conditioning, a flash card and the Study Buddy robot](pictures/notes.jpeg)
 
 ## What it does
 
@@ -12,7 +12,31 @@ NOTE-IT sorts your notes into key terms, theories and researchers, key studies, 
 
 The Study Buddy answers your questions from your own notes. It has three styles. Tutor explains things step by step. Peer talks like a friend who took the same course. Examiner asks you a question, marks your answer and tells you what you missed.
 
+If your notes are on paper, take a photo of them. Gemma reads the handwriting and you check the text before anything is generated.
+
 Every session is saved on your computer. A calendar shows the days you studied and your current streak.
+
+## Screenshots
+
+Typed notes go in on the left and the study notebook comes out on the right, with highlighted terms and quiz flash cards.
+
+![Typed notes on the left and the finished study notes with flash cards on the right](pictures/typed-notes.jpeg)
+
+The diagram shows how the ideas connect. You can switch the layout or edit the code behind it.
+
+![A diagram of operant conditioning](pictures/diagram.jpeg)
+
+Study Buddy opens from the robot in the corner. Pick Tutor, Peer or Examiner and ask away.
+
+![The Study Buddy chat explaining operant conditioning](pictures/study-buddy.jpeg)
+
+Photos of handwritten notes work too. Gemma reads them into text first, and you fix any mistakes.
+
+![A photo upload with the handwriting read into the notes box](pictures/handwritten-notes.jpeg)
+
+The notebook has a highlighter, sticky notes and an eraser.
+
+![A sticky note on the study notes](pictures/sticky-notes.jpeg)
 
 Nothing is uploaded anywhere. After the one-time setup it needs no internet, and it costs nothing to run.
 
@@ -32,7 +56,7 @@ Open http://localhost:8501, paste your notes and click Generate. The first run d
 
 ## Limits
 
-It's built for psychology notes. Gemma 3 4B is a small model and sometimes drops details such as the exact numbers in a study, so check the results against your own notes. Notes longer than about 12,000 characters get cut off.
+It's built for psychology notes. Gemma 3 4B is a small model. It sometimes drops details such as the exact numbers in a study, and it can misread handwriting, so check the results against your own notes. Notes longer than about 12,000 characters get cut off.
 
 ## Made with
 

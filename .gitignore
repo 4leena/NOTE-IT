@@ -9,3 +9,6 @@ my-llm-plan.md
 .DS_Store
 # her saved study sessions stay on the laptop
 saved_notes/
+
+# planning docs stay local
+docs/
