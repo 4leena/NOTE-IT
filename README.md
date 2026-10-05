@@ -4,6 +4,8 @@ Paste your rough lecture notes and get back notes you can study from, a diagram,
 
 We made it for a friend who studies psychology, for the DEV Hacktoberfest Weekend Challenge ("Build for a Friend"), in the Best Use of Gemma category.
 
+![NOTE-IT showing study notes on memory, a flash card, the notebook tools and the Study Buddy robot](docs/screenshot.png)
+
 ## What it does
 
 NOTE-IT sorts your notes into key terms, theories and researchers, key studies, evaluation, real-world examples and a short quiz. It also draws a diagram of how the ideas connect.
@@ -34,7 +36,7 @@ It's built for psychology notes. Gemma 3 4B is a small model and sometimes drops
 
 ## Made with
 
-Gemma 3 (4B), Google's open model, run through Ollama. Python and Streamlit for the app, uv for packages and Mermaid for diagrams. The fonts are Courier Prime, Parisienne and Nanum Pen Script.
+Gemma 3 (4B), Google's open model, run through Ollama. Python and Streamlit for the app, uv for packages and [Mermaid](https://mermaid.js.org) (MIT License) for diagrams. The fonts are Courier Prime, Parisienne and Nanum Pen Script, all under the SIL Open Font License. The notebook tool icons are from [Lucide](https://lucide.dev) (ISC License). Robot mascot drawn for this project, inspired by stock robot illustrations.
 
 We used Claude (Anthropic) through Claude Code to plan the work, write and test code, and draft test notes. We picked the idea, the design and the sections, and we ran and checked everything ourselves. Inside the app, Gemma on your machine does all the AI work.
 
