@@ -94,12 +94,13 @@ flowchart TD
 
 | Path | Who | What |
 |---|---|---|
-| `samples/memory.txt`, `samples/conditioning.txt`, `samples/social.txt` | Both | Messy psychology notes for testing and the demo |
+| `samples/memory.txt`, `samples/social.txt`, `samples/lecture1.txt` | Both | Messy psychology notes for testing and the demo |
+| `samples/other-subjects/` | Both | Non-psychology notes, kept for edge-case tests only |
 | `samples/expected.json` | A writes | One full `rewrite_notes` output, used by `fake_gemma.py` |
 | `docs/contract.md` | Both | This file |
 
 ## File ownership
 
-- **A:** `gemma.py`, `templates.py`, `try_llm.py`
-- **B:** `app.py`, `fake_gemma.py`
-- Swap at integration: in `app.py`, `import fake_gemma as gemma` → `import gemma`.
+- **A:** `src/backend/gemma.py`, `templates.py`, `try_llm.py`
+- **B:** `app.py`, `src/backend/fake_gemma.py`
+- `app.py` imports the real backend (`import gemma`). For offline demo data, change it to `import fake_gemma as gemma`. Both live in `src/backend`, which `app.py` adds to the import path.

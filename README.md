@@ -1,50 +1,46 @@
 # NOTE-IT
 
-Turn messy psychology lecture notes into clean study notes, with a diagram and a study buddy chatbot. Runs fully local with **Gemma** via **Ollama**, so your notes never leave your laptop.
+Paste your rough lecture notes and get back notes you can study from, a diagram, and a study buddy that quizzes you. It all runs on your own laptop with Gemma and Ollama, so you can study offline, with no tabs or notifications pulling you away.
 
-Built for the DEV Hacktoberfest Weekend Challenge ("Build for a Friend"): our friend studies psychology. Prize category: Best Use of Gemma.
+We made it for a friend who studies psychology, for the DEV Hacktoberfest Weekend Challenge ("Build for a Friend"), in the Best Use of Gemma category.
 
 ## What it does
 
-1. Paste rough psychology notes or a lecture transcript.
-2. Gemma rewrites them into a psychology study template.
-3. Gemma generates a Mermaid diagram of the main idea.
-4. Ask the Study Buddy questions about your notes, or say "quiz me".
+NOTE-IT sorts your notes into key terms, theories and researchers, key studies, evaluation, real-world examples and a short quiz. It also draws a diagram of how the ideas connect.
 
-Template sections: Key Terms, Theories & Researchers, Key Studies, Evaluation, Real-World Examples, Quiz Yourself.
+The Study Buddy answers your questions from your own notes. It has three styles. Tutor explains things step by step. Peer talks like a friend who took the same course. Examiner asks you a question, marks your answer and tells you what you missed.
 
-## Setup
+Every session is saved on your computer. A calendar shows the days you studied and your current streak.
 
-Requires Python 3.10+ and [Ollama](https://ollama.com/download).
+Nothing is uploaded anywhere. After the one-time setup it needs no internet, and it costs nothing to run.
+
+## Set up
+
+You need [uv](https://docs.astral.sh/uv/) and [Ollama](https://ollama.com/download), both free. In a terminal:
 
 ```bash
 git clone https://github.com/4leena/NOTE-IT.git
 cd NOTE-IT
-pip install -r requirements.txt
 ollama pull gemma3:4b
-streamlit run app.py
+uv sync
+uv run streamlit run app.py
 ```
 
-Open the URL Streamlit prints (usually http://localhost:8501). Try a file from `samples/` to start.
+Open http://localhost:8501, paste your notes and click Generate. The first run downloads the model, which is a few GB. After that a set of notes takes about 20 to 30 seconds.
 
-## Project layout
+## Limits
 
-```
-app.py            Streamlit UI
-gemma.py          Ollama calls: rewrite notes, diagram, chat
-templates.py      Psychology template and prompts
-samples/          Example psychology notes
-docs/design.md    Design doc
-```
+It's built for psychology notes. Gemma 3 4B is a small model and sometimes drops details such as the exact numbers in a study, so check the results against your own notes. Notes longer than about 12,000 characters get cut off.
 
-## Tech
+## Made with
 
-Python, Streamlit, Ollama (`gemma3:4b`), Mermaid.
+Gemma 3 (4B), Google's open model, run through Ollama. Python and Streamlit for the app, uv for packages and Mermaid for diagrams. The fonts are Courier Prime, Parisienne and Nanum Pen Script.
+
+We used Claude (Anthropic) through Claude Code to plan the work, write and test code, and draft test notes. We picked the idea, the design and the sections, and we ran and checked everything ourselves. Inside the app, Gemma on your machine does all the AI work.
 
 ## Team
 
-- [@4leena](https://github.com/4leena)
-- Teammate: TBD
+Aleena ([@4leena](https://github.com/4leena)) designed the interface. Ahad Baig built the Gemma backend.
 
 ## License
 
