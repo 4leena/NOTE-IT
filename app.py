@@ -28,7 +28,7 @@ BUDDY_CSS = """
   bottom: 52px;
   width: auto !important;
   z-index: 999996;
-  flex-direction: row !important;
+  flex-direction: column !important;
   align-items: flex-end !important;
   gap: 0 !important;
 }
@@ -55,8 +55,8 @@ BUDDY_CSS = """
 }
 .buddy-hello {
   position: relative;
-  width: 220px;
-  margin: 0 8px 70px 0;
+  width: 190px;
+  margin: 0 12px 10px 0;
   background: #FFFFFF;
   border: 1px solid #D9CDBE;
   border-radius: 18px;
@@ -69,8 +69,8 @@ BUDDY_CSS = """
 .buddy-hello::after {
   content: "";
   position: absolute;
-  right: -8px;
-  bottom: 18px;
+  right: 34px;
+  bottom: -8px;
   width: 14px;
   height: 14px;
   background: #FFFFFF;
@@ -387,33 +387,37 @@ button[data-testid="stBaseButton-secondary"] { border-radius: 4px; border: 1.5px
 .st-key-buddy { border: 1.5px solid #2B2422 !important; border-radius: 6px !important; box-shadow: 6px 6px 0 #2B2422 !important; }
 .st-key-buddy [class*="st-key-mode_"] button { border-radius: 4px; border: 1.5px solid #2B2422; }
 .buddy-hello { border: 1.5px solid #2B2422; border-radius: 6px; box-shadow: 4px 4px 0 #2B2422; }
-.buddy-hello::after { border-right: 1.5px solid #2B2422; border-bottom: 1.5px solid #2B2422; }
-.buddy-hello b { font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
+.buddy-hello::after { border-right: 1.5px solid #2B2422; border-bottom: 1.5px solid #2B2422; transform: rotate(45deg); }
+.buddy-hello b { font-family: 'Nanum Pen Script', cursive; font-size: var(--step-half); line-height: 1.2; margin-bottom: 4px; }
 .buddy-hello { animation: hello-pop 0.5s ease-out 0.4s both, hello-hide 0.6s ease-in 8s forwards; }
 @keyframes hello-hide { to { opacity: 0; visibility: hidden; transform: translateY(8px); } }
 .st-key-buddy [class*="st-key-mode_"] button p { font-size: var(--step-down); }
 .st-key-buddy [class*="st-key-mode_"] button { padding: 4px 2px !important; }
-.journal-hero { position: relative; min-height: 470px; padding: 40px 16px 24px; text-align: center; }
+.journal-hero { position: relative; min-height: 300px; padding: 24px 16px 8px; text-align: center; }
 .kicker { font-size: var(--step-down); letter-spacing: 0.3em; text-transform: uppercase; color: #6B5E57; }
 .journal-title { font-family: Parisienne, cursive; font-size: var(--step-3); line-height: 1.05; color: #8E2C2C; margin: 18px 0 4px; }
-.flourish { width: 220px; height: 24px; }
 .journal-sub { font-size: var(--step-0); max-width: 30rem; margin: 10px auto 18px; }
-.chevron { width: 22px; height: 22px; color: #8E2C2C; }
 .scrap { position: absolute; background: #FFFDF8; border: 1.5px solid #2B2422; box-shadow: 4px 4px 0 #2B2422; }
 .polaroid { left: 0; top: 30px; width: 150px; padding: 10px 10px 34px; transform: rotate(-7deg); }
 .polaroid img { width: 100%; background: #EFE6D6; display: block; }
 .polaroid span { position: absolute; left: 0; right: 0; bottom: 6px; font-family: 'Nanum Pen Script', cursive; font-size: var(--step-half); }
 .sticky-scrap { right: 10px; top: 20px; width: 150px; padding: 16px; background: #F6E3A1; transform: rotate(5deg);
   font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); line-height: 1.05; text-align: left; }
-.card-scrap { right: 40px; bottom: 10px; width: 190px; padding: 14px; transform: rotate(-3deg); text-align: left; font-size: var(--step-down); }
-.card-scrap b { display: block; color: #8E2C2C; letter-spacing: 0.2em; margin-bottom: 6px; }
 .journal-row { display: grid; grid-template-columns: 1fr 1.618fr; gap: 20px; margin-top: 20px; }
 .topics, .stats { border-top: 1.5px solid #2B2422; padding-top: 16px; }
 .row-label { font-size: var(--step-down); letter-spacing: 0.3em; text-transform: uppercase; color: #8E2C2C; margin-bottom: 14px; }
-.oval { display: inline-block; margin: 6px 8px; padding: 6px 20px; border: 1.5px solid #2B2422; border-radius: 50%;
-  font-family: 'Nanum Pen Script', cursive; font-size: var(--step-1); }
-.oval:nth-child(odd) { transform: rotate(-5deg); }
-.oval:nth-child(even) { transform: rotate(4deg); }
+.shelf { display: flex; align-items: flex-end; gap: 6px; min-height: 220px; padding: 0 10px;
+  border-bottom: 3px solid #2B2422; box-shadow: 0 6px 0 -3px #D9CDBE; }
+.book { display: flex; align-items: center; justify-content: center; padding: 20px 0; border: 1.5px solid #2B2422;
+  border-radius: 2px 2px 0 0; box-shadow: 3px 0 0 rgba(43, 36, 34, 0.25); writing-mode: vertical-rl; transform-origin: bottom left;
+  background-image: linear-gradient(to bottom, transparent 12px, rgba(255, 253, 248, 0.5) 12px, rgba(255, 253, 248, 0.5) 15px,
+    transparent 15px, transparent calc(100% - 15px), rgba(255, 253, 248, 0.5) calc(100% - 15px),
+    rgba(255, 253, 248, 0.5) calc(100% - 12px), transparent calc(100% - 12px)); }
+.book span { max-height: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-weight: 700; font-size: 0.7rem; letter-spacing: 0.04em; }
+.book:last-of-type { transform: rotate(7deg); margin-left: 4px; }
+.shelf .plant { width: 68px; margin-left: auto; }
+.shelf .kicker { align-self: center; flex: 1; }
 .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .stat { border: 1.5px solid #2B2422; border-radius: 4px; background: #FFFDF8; box-shadow: 4px 4px 0 #2B2422; padding: 14px 8px; text-align: center; }
 .stat b { display: block; font-family: Parisienne, cursive; font-size: var(--step-2); font-weight: 400; color: #8E2C2C; line-height: 1.1; }
@@ -496,6 +500,14 @@ button[data-testid="stBaseButton-secondary"] { border-radius: 4px; border: 1.5px
   top: 64px;
   height: calc(100vh - 112px);
 }
+[data-testid="stSidebarHeader"] {
+  height: 2.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+}
+[data-testid="stSidebarUserContent"] {
+  padding-top: 0;
+}
 [data-testid="stMainBlockContainer"] {
   padding-top: calc(64px + 2rem);
   padding-bottom: calc(48px + 2rem);
@@ -513,6 +525,12 @@ button[data-testid="stBaseButton-secondary"] { border-radius: 4px; border: 1.5px
 }
 </style>
 """
+
+UPLOAD_LABELS = {
+    "Typed": "Upload a file",
+    "Handwritten": "Photos of your pages",
+    "Both": "Upload files or photos",
+}
 
 SAVE_DIR = Path("saved_notes")
 SAVED_KEYS = ["notes", "result", "diagram", "history"]
@@ -1101,14 +1119,10 @@ def show_calendar():
             st.rerun()
 
 
-FLOURISH = (
-    "<svg class='flourish' viewBox='0 0 220 24' aria-hidden='true'><path d='M4 14 C 60 2, 120 26, 216 8' fill='none' "
-    "stroke='#8E2C2C' stroke-width='2.5' stroke-linecap='round'/></svg>"
-)
-CHEVRON = (
-    "<svg class='chevron' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' "
-    "stroke-linejoin='round' aria-hidden='true'><path d='m6 6 6 6 6-6'/><path d='m6 12 6 6 6-6'/></svg>"
-)
+
+BOOK_COLORS = [("#8E2C2C", "#FFFDF8"), ("#F2D46B", "#2B2422"), ("#7D8B6A", "#FFFDF8"), ("#2B2422", "#F4EDE1"), ("#C4706A", "#FFFDF8")]
+BOOK_HEIGHTS = [184, 160, 174, 150]
+BOOK_WIDTHS = [44, 36, 50]
 
 
 def show_start_screen():
@@ -1122,21 +1136,25 @@ def show_start_screen():
             if topic and topic not in topics:
                 topics.append(topic)
     owner = f"A study journal for {html.escape(FRIEND_NAME)}" if FRIEND_NAME else "A study journal"
-    ovals = "".join(f"<span class='oval'>{html.escape(t)}</span>" for t in topics[-6:])
-    if not ovals:
-        ovals = "<span class='kicker'>Your topics will collect here</span>"
+    books = "".join(
+        f"<div class='book' style='height:{min(max(BOOK_HEIGHTS[i % 4], 48 + 7 * len(t)), 210)}px; width:{BOOK_WIDTHS[i % 3]}px; "
+        f"background-color:{BOOK_COLORS[i % 5][0]}; color:{BOOK_COLORS[i % 5][1]};' title='{html.escape(t)}'>"
+        f"<span>{html.escape(t)}</span></div>"
+        for i, t in enumerate(topics[-6:])
+    )
+    if not books:
+        books = "<span class='kicker'>Your topics will collect here</span>"
+    shelf = f"<div class='shelf'>{books}<img class='plant' src='/app/static/plant.svg' alt=''></div>"
     st.html(
         "<div class='journal-hero'>"
         "<div class='scrap polaroid'><img src='/app/static/buddy.svg' alt=''><span>your study buddy</span></div>"
         "<div class='scrap sticky-scrap'>you've got this. one page at a time.</div>"
-        "<div class='scrap card-scrap'><b>FLASH CARD</b>What are the three memory stores?</div>"
         f"<div class='kicker'>{owner}</div>"
         "<div class='journal-title'>What are we<br>studying today?</div>"
-        f"{FLOURISH}"
         "<div class='journal-sub'>Paste, upload or photograph your lecture notes in the sidebar, then press Generate.</div>"
-        f"{CHEVRON}</div>"
+        "</div>"
         "<div class='journal-row'>"
-        f"<div class='topics'><div class='row-label'>Topics so far</div>{ovals}</div>"
+        f"<div class='topics'><div class='row-label'>Your shelf</div>{shelf}</div>"
         "<div class='stats'><div class='row-label'>Your progress</div><div class='stat-grid'>"
         f"<div class='stat'><b>{len(days)}</b><span>Study days</span></div>"
         f"<div class='stat'><b>{study_streak(days)}</b><span>Day streak</span></div>"
@@ -1244,29 +1262,29 @@ with st.sidebar:
         default="Typed", required=True, key="note_type", width="stretch",
     )
 
-    if note_type != "Typed":
-        photos = st.file_uploader(
-            "Photos of your pages", type=["jpg", "jpeg", "png"], accept_multiple_files=True
-        )
-        if st.button("Read my handwriting", width="stretch", disabled=not photos):
-            pages = []
-            try:
-                for number, photo in enumerate(photos, start=1):
-                    with st.spinner(f"Reading page {number} of {len(photos)}…"):
-                        pages.append(gemma.read_handwriting(photo.getvalue()))
-            except gemma.GemmaError as error:
-                st.error(str(error))
-            else:
-                typed = st.session_state.get("notes_input", "") if note_type == "Both" else ""
-                st.session_state["notes_input"] = "\n\n".join([typed.strip()] + pages).strip()
+    files = st.file_uploader(
+        UPLOAD_LABELS[note_type], type=["txt", "md", "jpg", "jpeg", "png"],
+        accept_multiple_files=True, key="uploads",
+    )
+    photos = [f for f in files if f.type.startswith("image/")]
+    texts = [f.getvalue().decode("utf-8") for f in files if not f.type.startswith("image/")]
+
+    if photos and st.button("Read my handwriting", width="stretch"):
+        pages = []
+        try:
+            for number, photo in enumerate(photos, start=1):
+                with st.spinner(f"Reading page {number} of {len(photos)}…"):
+                    pages.append(gemma.read_handwriting(photo.getvalue()))
+        except gemma.GemmaError as error:
+            st.error(str(error))
+        else:
+            typed = st.session_state.get("notes_input", "") if note_type == "Both" else ""
+            st.session_state["notes_input"] = "\n\n".join([typed.strip()] + pages).strip()
 
     notes = st.text_area("Your notes", height=250, key="notes_input")
-    if note_type != "Typed":
+    if photos or note_type != "Typed":
         st.caption("Gemma can misread handwriting. Check names and numbers before you press Generate.")
-    if note_type != "Handwritten":
-        uploaded = st.file_uploader("…or upload a file", type=["txt", "md"])
-        if uploaded is not None:
-            notes = uploaded.read().decode("utf-8")
+    notes = "\n\n".join([notes.strip()] + texts).strip()
 
     generate = st.button("Generate", type="primary", width="stretch")
 
